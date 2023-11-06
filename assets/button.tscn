@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsa8miqihggx0"]
+
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_tbleo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fkp7"]
+size = Vector2(24, 16)
+
+[node name="Button" type="Area2D"]
+script = ExtResource("1_tbleo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 8)
+shape = SubResource("RectangleShape2D_3fkp7")
