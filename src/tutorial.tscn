@@ -33,4 +33,6 @@ layer_0/tile_data = PackedInt32Array(917673, 0, 0, 917674, 0, 0, 917675, 0, 0, 9
 position = Vector2(4948, 384)
 
 [node name="VerticalSlider" parent="." instance=ExtResource("4_vtv2i")]
-position = Vector2(5288, 477)
+position = Vector2(5304, 477)
+layer_0/tile_data = PackedInt32Array(0, 524288, 42, 65536, 524288, 43, 131072, 524288, 44, 196608, 524288, 45, 393216, 524288, 48, 458752, 524288, 49, 327680, 524288, 47, 262144, 524288, 46)
+activator = NodePath("../Button")
