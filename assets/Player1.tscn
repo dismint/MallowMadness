@@ -16,8 +16,6 @@ shape = SubResource("RectangleShape2D_aatbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.149334, 0.151335)
 texture = ExtResource("2_l4dsi")
