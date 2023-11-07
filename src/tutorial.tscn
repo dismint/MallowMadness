@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=9 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Texture2D" uid="uid://bnw67ajba1532" path="res://assets/spikes.jpg" id="2_g4spv"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://assets/button.tscn" id="3_bmsdg"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://assets/vertical_slider.tscn" id="4_vtv2i"]
+[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://assets/Player1.tscn" id="5_lb3ns"]
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="5_w1nns"]
+[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://assets/Player2.tscn" id="6_swjdr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhy4w"]
 texture = ExtResource("2_g4spv")
@@ -32,3 +34,9 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607
 tile_set = SubResource("TileSet_yy7xw")
 format = 2
 layer_0/tile_data = PackedInt32Array(917673, 0, 0, 917674, 0, 0, 917675, 0, 0, 917676, 0, 0, 917677, 0, 0, 917678, 0, 0, 917679, 0, 0, 917680, 0, 0)
+
+[node name="Player1" parent="." instance=ExtResource("5_lb3ns")]
+position = Vector2(1101, 549)
+
+[node name="Player2" parent="." instance=ExtResource("6_swjdr")]
+position = Vector2(701, 548)
