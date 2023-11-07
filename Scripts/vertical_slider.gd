@@ -6,9 +6,9 @@ var speed = 13
 @onready var new_position : Vector2
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if activ.activated:
-		position = position.move_toward(new_position, delta * speed)
+		position = position.move_toward(new_position, _delta * speed)
 		
 	if (position - new_position).length() <= 0.2:
 		queue_free()
@@ -21,5 +21,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

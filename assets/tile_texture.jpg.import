@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bap6yc2pxhkv5"
-path="res://.godot/imported/tp20-sky-blue-square-2048px copy.jpg-b9d3b80a2411432687e15d0aae205a95.ctex"
+uid="uid://ck2c8m5bwcs2"
+path="res://.godot/imported/tile_texture.jpg-6824c7bf70d7a3c70c02f7ae7b62f0f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tp20-sky-blue-square-2048px copy.jpg"
-dest_files=["res://.godot/imported/tp20-sky-blue-square-2048px copy.jpg-b9d3b80a2411432687e15d0aae205a95.ctex"]
+source_file="res://assets/tile_texture.jpg"
+dest_files=["res://.godot/imported/tile_texture.jpg-6824c7bf70d7a3c70c02f7ae7b62f0f4.ctex"]
 
 [params]
 
