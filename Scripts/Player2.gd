@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal cross_finish_1
 
 
 const SPEED = 500.0
