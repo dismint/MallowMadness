@@ -16,4 +16,7 @@ func _on_player_1_cross_finish_1():
 
 
 func _on_player_2_cross_finish_2():
-	pass # Replace with function body.
+	print($Player2.get_position())
+	
+func pause_game():
+	pass

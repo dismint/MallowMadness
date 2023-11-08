@@ -27,3 +27,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func reached_end():
+	if $Player1.get_position().get_x() == 1200:
+		$Player1.emit(cross_finish_2)	
