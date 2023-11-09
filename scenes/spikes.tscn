@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://wqonyfv3q26n"]
+
+[ext_resource type="Texture2D" uid="uid://bnw67ajba1532" path="res://assets/spikes.jpg" id="1_e70vi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhy4w"]
+texture = ExtResource("1_e70vi")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yy7xw"]
+tile_size = Vector2i(40, 40)
+sources/0 = SubResource("TileSetAtlasSource_jhy4w")
+
+[node name="Spikes" type="TileMap"]
+tile_set = SubResource("TileSet_yy7xw")
+format = 2
+layer_0/tile_data = PackedInt32Array(917673, 0, 0, 917674, 0, 0, 917675, 0, 0, 917676, 0, 0, 917677, 0, 0, 917678, 0, 0, 917679, 0, 0, 917680, 0, 0, 917599, 0, 0, 917598, 0, 0, 917597, 0, 0, 917596, 0, 0, 917595, 0, 0, 917594, 0, 0, 917593, 0, 0, 917592, 0, 0, 917591, 0, 0, 917590, 0, 0, 917600, 0, 0, 917601, 0, 0, 917587, 0, 0, 917588, 0, 0, 917589, 0, 0)
