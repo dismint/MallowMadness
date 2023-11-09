@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://k0j8hxol2gik"]
 
-[ext_resource type="Script" path="res://Scripts/Player2.gd" id="1_41y6i"]
+[ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_jhgbb"]
 [ext_resource type="Texture2D" uid="uid://byoc3mvs31pag" path="res://icon.svg" id="2_l4dsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
@@ -9,9 +9,9 @@
 scale = Vector2(5, 5)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_41y6i")
+script = ExtResource("1_jhgbb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="p1CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aatbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

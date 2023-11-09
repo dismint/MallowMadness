@@ -41,6 +41,3 @@ collision_layer = 3
 script = ExtResource("8_27gff")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
-
-[connection signal="cross_finish_1" from="Player1" to="." method="_on_player_1_cross_finish_1"]
-[connection signal="cross_finish_2" from="Player2" to="." method="_on_player_2_cross_finish_2"]
