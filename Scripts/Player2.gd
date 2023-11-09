@@ -1,35 +1,35 @@
 extends CharacterBody2D
 
-const TIMER = 5
+#const TIMER = 5
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
-var timer = 0
+#var timer = 0
 @onready var cam: Camera2D = get_node("/root/Tutorial/Camera2D")
 
-func check_reset_size(delta):
-	if (scale.y == scale.x):
-		return
-
-	timer += delta
-	if timer < TIMER:
-		return
-
-	timer = 0
-	scale.y = scale.x
-	var collision = move_and_collide(Vector2(0, -0.1))
-	if not collision:
-		return
-	
-	if not collision.get_collider().name.contains("Player"):
-		print(collision.get_collider().name)
-		_on_finish_line_finish_game()
+#func check_reset_size(delta):
+#	if (scale.y == scale.x):
+#		return
+#
+#	timer += delta
+#	if timer < TIMER:
+#		return
+#
+#	timer = 0
+#	scale.y = scale.x
+#	var collision = move_and_collide(Vector2(0, -0.1))
+#	if not collision:
+#		return
+#
+#	if not collision.get_collider().name.contains("Player"):
+#		print(collision.get_collider().name)
+#		_on_finish_line_finish_game()
 
 func _physics_process(delta):
-	check_reset_size(delta)
+#	check_reset_size(delta)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -38,7 +38,10 @@ func _physics_process(delta):
 			var collision = move_and_collide(Vector2(0, velocity.y))
 			if collision:
 				doing_pound = false
+				if not collision.get_collider().name.contains("Player"):
+					return
 				collision.get_collider().scale.y *= 0.75
+				collision.get_collider().scale.x *= 1.25
 				print("I collided with ", collision.get_collider().name)
 			return
 
