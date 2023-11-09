@@ -23,6 +23,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("p1_down"):
 			doing_pound = true
 			return
+		
+		velocity.y += gravity * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("p1_jump") and is_on_floor():
