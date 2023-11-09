@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=12 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Script" path="res://src/tutorial.gd" id="1_chumi"]
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="3_ae33q"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/button.tscn" id="3_bmsdg"]
-[ext_resource type="PackedScene" path="res://scenes/spikes_with_collision.tscn" id="4_1as2c"]
+[ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/spikes_15.tscn" id="4_1as2c"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/vertical_slider.tscn" id="4_vtv2i"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://assets/Player1.tscn" id="5_lb3ns"]
+[ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/spikes_5.tscn" id="5_o8gnv"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://assets/Player2.tscn" id="6_swjdr"]
 [ext_resource type="Script" path="res://Scripts/CameraBoth.gd" id="8_27gff"]
 [ext_resource type="Script" path="res://src/Finish Line.gd" id="9_tisug"]
@@ -29,6 +30,9 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607
 position = Vector2(3320, 560)
 collision_layer = 3
 collision_mask = 3
+
+[node name="Spikes2" parent="TileMap" instance=ExtResource("5_o8gnv")]
+position = Vector2(6880, 560)
 
 [node name="Button" parent="." instance=ExtResource("3_bmsdg")]
 position = Vector2(4951, 383)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmqqgvd1p6q8"]
+
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="1_kkjw8"]
+[ext_resource type="PackedScene" uid="uid://wqonyfv3q26n" path="res://scenes/spikes.tscn" id="2_yrsf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvn1k"]
+size = Vector2(200, 40)
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_kkjw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_xvn1k")
+
+[node name="Spikes" parent="." instance=ExtResource("2_yrsf1")]
+layer_0/tile_data = PackedInt32Array(917673, 0, 0, 917674, 0, 0, 917675, 0, 0, 917676, 0, 0, 917677, 0, 0, 917678, 0, 0, 917679, 0, 0, 917680, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0)

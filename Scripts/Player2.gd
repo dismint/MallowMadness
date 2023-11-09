@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -500.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
+@onready var cam: Camera2D = get_node("/root/Tutorial/Camera2D")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -37,8 +38,23 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+	var cam_size = cam.get_viewport().get_visible_rect().size
+	var cam_pos = cam.get_screen_center_position()
 
+	if (cam_pos.x - cam_size.x) > position.x:
+		velocity.x = 0
+		position.x = (cam_pos.x - cam_size.x)
+	if position.x > (cam_pos.x + cam_size.x):
+		velocity.x = 0
+		position.x = (cam_pos.x + cam_size.x)
+	if cam_pos.y - cam_size.y > position.y:
+		velocity.y = 0
+		position.y = cam_pos.y - cam_size.y
+	if position.y > (cam_pos.y + cam_size.y):
+		velocity.y = 0
+		position.y = cam_pos.y + cam_size.y
+
+	move_and_slide()
 
 
 func _on_finish_line_finish_game():

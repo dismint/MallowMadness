@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var camera: NodePath
+@onready var cam: Camera2D = get_node("/root/Tutorial/Camera2D")
+# @onready var cam_pos : Vector2 = cam.get("camera_position")
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
@@ -37,9 +40,23 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	var cam_size = cam.get_viewport().get_visible_rect().size
+	var cam_pos = cam.get_screen_center_position()
+
+	if (cam_pos.x - cam_size.x) > position.x:
+		velocity.x = 0
+		position.x = (cam_pos.x - cam_size.x)
+	if position.x > (cam_pos.x + cam_size.x):
+		velocity.x = 0
+		position.x = (cam_pos.x + cam_size.x)
+	if cam_pos.y - cam_size.y > position.y:
+		velocity.y = 0
+		position.y = cam_pos.y - cam_size.y
+	if position.y > (cam_pos.y + cam_size.y):
+		velocity.y = 0
+		position.y = cam_pos.y + cam_size.y
+
 	move_and_slide()
-
-
 
 func _on_finish_line_finish_game():
 	set_position(Vector2(511, 548))
