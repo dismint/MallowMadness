@@ -1,5 +1,4 @@
 extends CharacterBody2D
-signal cross_finish_1
 
 
 const SPEED = 500.0
@@ -39,3 +38,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func _on_finish_line_finish_game():
+	set_position(Vector2(701, 548))
