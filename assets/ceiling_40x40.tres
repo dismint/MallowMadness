@@ -1,17 +1,20 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bsx22gkgqd78q"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b0yi5fu40wyae"]
 
-[ext_resource type="Texture2D" uid="uid://ck2c8m5bwcs2" path="res://assets/tile_texture.jpg" id="1_1h1xr"]
+[ext_resource type="Texture2D" uid="uid://ck2c8m5bwcs2" path="res://assets/tile_texture.jpg" id="1_mmwwk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mb37"]
-texture = ExtResource("1_1h1xr")
+texture = ExtResource("1_mmwwk")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+0:0/0/custom_data_0 = "ceiling"
 
 [resource]
 tile_size = Vector2i(40, 40)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_5mb37")
