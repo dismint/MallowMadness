@@ -15,6 +15,10 @@ run/main_scene="res://src/tutorial.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://Scripts/game_state.gd"
+
 [input]
 
 p1_jump={
