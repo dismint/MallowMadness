@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Player
+class_name MallowPlayer
 
 @onready var cam: Camera2D = get_node("/root/Tutorial/Camera2D")
 

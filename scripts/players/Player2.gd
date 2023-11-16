@@ -1,4 +1,4 @@
-extends Player
+extends MallowPlayer
 
 func _ready():
 	down = "p2_down"
