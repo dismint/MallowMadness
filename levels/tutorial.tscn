@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/Player1.tscn" id="8_lt6w3"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/Player2.tscn" id="9_kh68f"]
 [ext_resource type="Script" path="res://Scripts/players/Player1.gd" id="10_234fv"]
-[ext_resource type="Script" path="res://scripts/CameraBoth.gd" id="10_632q6"]
+[ext_resource type="Script" path="res://scripts/camera_both.gd" id="10_632q6"]
 [ext_resource type="Script" path="res://scripts/obstacles/Finish Line.gd" id="11_5l85k"]
 [ext_resource type="Script" path="res://Scripts/players/Player2.gd" id="12_70m02"]
 
