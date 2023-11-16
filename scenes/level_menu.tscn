@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6lbkin41gkh"]
+
+[ext_resource type="Script" path="res://Scripts/level_menu.gd" id="1_ej3sx"]
+
+[node name="Level Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ej3sx")
+dir_path = "res://levels"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.639216, 0.862745, 0.945098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 204.0
+offset_right = 1153.0
+offset_bottom = 465.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 359.0
+offset_bottom = 34.0
+scale = Vector2(5, 5)
+text = "SELECT YOUR LEVEL"
