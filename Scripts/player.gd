@@ -84,7 +84,7 @@ func check_size(delta):
 	var max_pounds = 4
 	var min_yscale = scale.x * pow(POUND_SCALE, 4)
 	if (scale.y < min_yscale):
-		scale.y = min_yscale
+		GameState.reset = true
 	
 	if (scale.y == scale.x):
 		return
