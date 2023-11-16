@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://c6pshpj7frrij"]
 
-[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_n4jk4"]
-[ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/vertical_slider.tscn" id="2_nj7hv"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_n4jk4"]
+[ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_nj7hv"]
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="3_do8nj"]
 [ext_resource type="TileSet" uid="uid://b0yi5fu40wyae" path="res://assets/ceiling_40x40.tres" id="4_b3eq6"]
-[ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/spikes_15.tscn" id="5_ppti4"]
-[ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/spikes_5.tscn" id="6_w1ywd"]
-[ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/button.tscn" id="7_n3vc3"]
+[ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/obstacles/spikes/spikes_15.tscn" id="5_ppti4"]
+[ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/obstacles/spikes/spikes_5.tscn" id="6_w1ywd"]
+[ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/Player1.tscn" id="8_lt6w3"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/Player2.tscn" id="9_kh68f"]
-[ext_resource type="Script" path="res://Scripts/CameraBoth.gd" id="10_632q6"]
-[ext_resource type="Script" path="res://Scripts/Finish Line.gd" id="11_5l85k"]
+[ext_resource type="Script" path="res://scripts/CameraBoth.gd" id="10_632q6"]
+[ext_resource type="Script" path="res://scripts/Finish Line.gd" id="11_5l85k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)

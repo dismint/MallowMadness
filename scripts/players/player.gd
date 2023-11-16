@@ -8,6 +8,7 @@ const TIMER = 5
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 const POUND_SCALE = 0.75
+const MAX_POUNDS = 4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -81,8 +82,7 @@ func reset_position():
 	set_position(starting_position)
 
 func check_size(delta):
-	var max_pounds = 4
-	var min_yscale = scale.x * pow(POUND_SCALE, 4)
+	var min_yscale = scale.x * pow(POUND_SCALE, MAX_POUNDS)
 	if (scale.y < min_yscale):
 		GameState.reset = true
 	

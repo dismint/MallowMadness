@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://yc51v7x76e3h"]
 
 [ext_resource type="Texture2D" uid="uid://dfxy3c2l3t0gx" path="res://assets/wahoo.png" id="1_gee4d"]
-[ext_resource type="Script" path="res://Scripts/lvl_btn.gd" id="1_t31rk"]
+[ext_resource type="Script" path="res://scripts/lvl_btn.gd" id="2_nbgdf"]
 
 [node name="Level Button" type="Button"]
 offset_right = 18.0
 offset_bottom = 18.0
 icon = ExtResource("1_gee4d")
-script = ExtResource("1_t31rk")
+script = ExtResource("2_nbgdf")
 
 [connection signal="mouse_entered" from="." to="." method="_on_lvl_btn_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_lvl_btn_mouse_exited"]
