@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://cb6lbkin41gkh"]
 
-[ext_resource type="Script" path="res://scripts/lvl_navi/level_menu.gd" id="1_8f3kl"]
+[ext_resource type="Script" path="res://scripts/lvl_navi/level_menu.gd" id="1_p4ssl"]
 
 [node name="Level Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_8f3kl")
+script = ExtResource("1_p4ssl")
 dir_path = "res://levels"
 
 [node name="ColorRect" type="ColorRect" parent="."]

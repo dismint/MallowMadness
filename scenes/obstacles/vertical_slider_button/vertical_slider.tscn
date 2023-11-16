@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1168yqnrnkqc"]
 
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="1_exuid"]
-[ext_resource type="Script" path="res://Scripts/vertical_slider.gd" id="2_s2647"]
+[ext_resource type="Script" path="res://Scripts/obstacles/vertical_slider_button/vertical_slider.gd" id="2_s2647"]
 
 [node name="VerticalSlider" type="TileMap"]
 tile_set = ExtResource("1_exuid")

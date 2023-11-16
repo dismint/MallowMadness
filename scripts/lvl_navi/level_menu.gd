@@ -1,6 +1,6 @@
 extends Control
 
-const LVL_BTN = preload("res://scenes/level_button.tscn")
+const LVL_BTN = preload("res://scenes/lvl_navi/level_button.tscn")
 @export_dir var dir_path
 @onready var grid = $MarginContainer/HBoxContainer/GridContainer
 
