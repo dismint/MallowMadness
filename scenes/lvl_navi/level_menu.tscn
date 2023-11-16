@@ -6,6 +6,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_p4ssl")
+dir_path = "res://levels"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
