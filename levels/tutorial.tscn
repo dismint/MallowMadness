@@ -1,19 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=12 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_n4jk4"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_nj7hv"]
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="3_do8nj"]
-[ext_resource type="Script" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.gd" id="3_pfvjl"]
 [ext_resource type="TileSet" uid="uid://b0yi5fu40wyae" path="res://assets/ceiling_40x40.tres" id="4_b3eq6"]
 [ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/obstacles/spikes/spikes_15.tscn" id="5_ppti4"]
 [ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/obstacles/spikes/spikes_5.tscn" id="6_w1ywd"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
-[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/Player1.tscn" id="8_lt6w3"]
-[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/Player2.tscn" id="9_kh68f"]
-[ext_resource type="Script" path="res://Scripts/players/Player1.gd" id="10_234fv"]
+[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_lt6w3"]
+[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_kh68f"]
 [ext_resource type="Script" path="res://scripts/camera_both.gd" id="10_632q6"]
-[ext_resource type="Script" path="res://scripts/obstacles/Finish Line.gd" id="11_5l85k"]
-[ext_resource type="Script" path="res://Scripts/players/Player2.gd" id="12_70m02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
@@ -23,7 +19,6 @@ script = ExtResource("1_n4jk4")
 
 [node name="VerticalSlider" parent="." instance=ExtResource("2_nj7hv")]
 position = Vector2(5280, 400)
-script = ExtResource("3_pfvjl")
 
 [node name="MapLayout" type="TileMap" parent="."]
 tile_set = ExtResource("3_do8nj")
@@ -50,32 +45,20 @@ position = Vector2(4951, 384)
 position = Vector2(511, 548)
 collision_layer = 3
 collision_mask = 7
-script = ExtResource("10_234fv")
 
 [node name="Player2" parent="." instance=ExtResource("9_kh68f")]
 position = Vector2(701, 548)
 collision_layer = 3
 collision_mask = 7
-script = ExtResource("12_70m02")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+[node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("10_632q6")
-player1 = NodePath("../Player1")
-player2 = NodePath("../Player2")
 
 [node name="Finish Line" type="Area2D" parent="."]
 position = Vector2(1921, 21)
-script = ExtResource("11_5l85k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
 position = Vector2(5905, 306)
 shape = SubResource("RectangleShape2D_1fley")
 
-[node name="Player3" parent="." instance=ExtResource("8_lt6w3")]
-visible = false
-position = Vector2(349, 547)
-script = null
-
 [connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]
-[connection signal="finish_game" from="Finish Line" to="Player1" method="_on_finish_line_finish_game"]
-[connection signal="finish_game" from="Finish Line" to="Player2" method="_on_finish_line_finish_game"]
