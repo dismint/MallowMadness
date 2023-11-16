@@ -7,6 +7,7 @@ class_name Player
 const TIMER = 5
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
+const POUND_SCALE = 0.75
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -30,7 +31,7 @@ func _physics_process(delta):
 		GameState.reset_positions()
 		return
 		
-	check_reset_size(delta)
+	check_size(delta)
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,7 +42,7 @@ func _physics_process(delta):
 				doing_pound = false
 				var collider = collision.get_collider()
 				if collider.name.contains("Player"):
-					collider.scale.y *= 0.75
+					collider.scale.y *= POUND_SCALE
 					collider.timer = 0
 				print("I collided with ", collision.get_collider().name)
 			return
@@ -79,7 +80,12 @@ func _physics_process(delta):
 func reset_position():
 	set_position(starting_position)
 
-func check_reset_size(delta):
+func check_size(delta):
+	var max_pounds = 4
+	var min_yscale = scale.x * pow(POUND_SCALE, 4)
+	if (scale.y < min_yscale):
+		scale.y = min_yscale
+	
 	if (scale.y == scale.x):
 		return
 
