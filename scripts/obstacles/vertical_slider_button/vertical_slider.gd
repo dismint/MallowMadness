@@ -1,7 +1,7 @@
 extends TileMap
 
 @export var activator: NodePath
-@onready var activ: Activator = get_node(activator)
+@export var activ: Activator
 var speed = 100
 @onready var new_position : Vector2
 @onready var rest_position : Vector2

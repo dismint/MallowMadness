@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=13 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_n4jk4"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_nj7hv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_lt6w3"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_kh68f"]
 [ext_resource type="Script" path="res://scripts/camera_both.gd" id="10_632q6"]
+[ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_xiyfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
@@ -17,8 +18,9 @@ size = Vector2(20, 610)
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_n4jk4")
 
-[node name="VerticalSlider" parent="." instance=ExtResource("2_nj7hv")]
+[node name="VerticalSlider" parent="." node_paths=PackedStringArray("activ") instance=ExtResource("2_nj7hv")]
 position = Vector2(5280, 400)
+activ = NodePath("../Button")
 
 [node name="MapLayout" type="TileMap" parent="."]
 tile_set = ExtResource("3_do8nj")
@@ -51,11 +53,14 @@ position = Vector2(701, 548)
 collision_layer = 3
 collision_mask = 7
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 script = ExtResource("10_632q6")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
 
 [node name="Finish Line" type="Area2D" parent="."]
 position = Vector2(1921, 21)
+script = ExtResource("11_xiyfm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
 position = Vector2(5905, 306)
