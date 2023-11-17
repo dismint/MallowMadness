@@ -23,3 +23,16 @@ func _process(_delta):
 		screen_size = get_viewport().get_visible_rect().size
 		screen_position = self.global_position
 		
+		# Focus the player position within camera view
+		update_player(player1)
+		update_player(player2)
+		
+func update_player(player: CharacterBody2D):
+	var cam_size = get_viewport().get_visible_rect().size
+	var cam_pos = get_screen_center_position()
+	if (cam_pos.x - cam_size.x) > player.position.x:
+		player.velocity.x = 0
+		player.position.x = (cam_pos.x - cam_size.x)
+	if player.position.x > (cam_pos.x + cam_size.x):
+		player.velocity.x = 0
+		player.position.x = (cam_pos.x + cam_size.x)

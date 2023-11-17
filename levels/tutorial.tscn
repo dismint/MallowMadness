@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_lt6w3"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_kh68f"]
-[ext_resource type="Script" path="res://scripts/camera_both.gd" id="10_632q6"]
+[ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_gp66e"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_xiyfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
@@ -53,8 +53,7 @@ position = Vector2(701, 548)
 collision_layer = 3
 collision_mask = 7
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
-script = ExtResource("10_632q6")
+[node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("10_gp66e")]
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
