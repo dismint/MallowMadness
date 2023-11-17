@@ -101,6 +101,7 @@ func do_expand_collision():
 	# We collided with a ceiling, let's squish ourselves to fit exactly into the corridor!
 	if collider.name == "Ceiling":
 		scale.y = TILE_SIZE
+		curr_pound = MAX_POUNDS - 1 # Allow players to pound one more time to reset
 		return
 	
 	# Else you just die
