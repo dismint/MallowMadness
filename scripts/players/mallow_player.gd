@@ -9,11 +9,13 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 const POUND_SCALE = 0.75
 const MAX_POUNDS = 4
+const TILE_SIZE = 1.75 # Number obtained through experimentation
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
 var curr_pound = 0
+var just_expanded = 0
 var timer = 0
 
 # Define directions for each player
@@ -30,6 +32,8 @@ func reset_position():
 	PLAYER_UTILS.reset_player(self)
 func reset_size():
 	PLAYER_UTILS.reset_size(self)
+func is_squished():
+	return scale.y == TILE_SIZE
 
 func handle_gravity(delta):
 	if Input.is_action_just_pressed(down):
@@ -62,6 +66,9 @@ func handle_gravity(delta):
 func should_reset_size(delta):	
 	if (scale.y == scale.x):
 		return false
+	
+	if (is_squished()):
+		return false
 
 	timer += delta
 	if timer < RESET_TIME:
@@ -70,26 +77,48 @@ func should_reset_size(delta):
 	timer = 0
 	return true
 
-func do_expand():
-	PLAYER_UTILS.reset_size(self)
+func do_expand_collision():
+	# Add negligible movement to get collisions
 	var collision = move_and_collide(Vector2(0, -0.1))
 	if not collision:
 		return
+	
+	# We collided with something
+	var collider = collision.get_collider()
+	print("I expanded to ", collider.name) # For debugging
 
-	print(collision.get_collider().name)
-	if collision.get_collider().name == "Ceiling":
-		GameState.reset = true
+	# We collided with a player, so let's launch them!
+	if collider.name.contains("Player"):
+		PLAYER_UTILS.launch_player(collider, JUMP_VELOCITY * 0.5 * just_expanded)
+		return
+	
+	# TODO Should we really kill them or not if squashed under ceiling? Playtest!!!
+	# We collided with a ceiling, let's reset the game.
+#	if collider.name == "Ceiling":
+#		GameState.reset = true
+#		return
+	
+	# We collided with a ceiling, let's squish ourselves to fit exactly into the corridor!
+	if collider.name == "Ceiling":
+		scale.y = TILE_SIZE
+		return
+	
+	# Else you just die
+	GameState.reset = true
 
 func _physics_process(delta):
-	if (curr_pound > MAX_POUNDS):
-		GameState.reset = true
-
-	if GameState.reset:
+	if GameState.reset or (curr_pound > MAX_POUNDS):
 		GameState.reset_positions()
 		return
 		
 	if should_reset_size(delta):
-		do_expand()
+		just_expanded = curr_pound # Save number of pounds for expand collision
+		PLAYER_UTILS.reset_size(self)
+		return
+
+	if bool(just_expanded): # We need to process expand collisions on the next frame
+		do_expand_collision()
+		just_expanded = 0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -99,12 +128,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Handle jump or add the gravity.
+	# Handle the gravity.
 	if is_on_floor():
-		if Input.is_action_just_pressed(up):
+		if not is_squished() and Input.is_action_just_pressed(up):
 			velocity.y = JUMP_VELOCITY
-		else:
-			velocity.y = 0
 	else:
 		handle_gravity(delta)
 	
