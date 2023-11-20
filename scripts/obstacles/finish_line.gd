@@ -17,6 +17,9 @@ func _process(_delta):
 func _on_body_entered(_body):
 	crossed += 1
 	
-	if crossed == 3:
-		finish_game.emit()
-		crossed = 1
+	if crossed == 2:
+		if len(get_overlapping_bodies()) == 2:
+			finish_game.emit()
+			
+			print('game finished!')
+		crossed = 0

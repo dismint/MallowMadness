@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=12 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_n4jk4"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_nj7hv"]
@@ -10,10 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_lt6w3"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_kh68f"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_gp66e"]
-[ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_xiyfm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
-size = Vector2(20, 610)
+[ext_resource type="PackedScene" uid="uid://wrvhfx242ol2" path="res://scenes/obstacles/finish_condition.tscn" id="11_g2tmd"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_n4jk4")
@@ -57,12 +54,5 @@ collision_mask = 7
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
-[node name="Finish Line" type="Area2D" parent="."]
-position = Vector2(1921, 21)
-script = ExtResource("11_xiyfm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line"]
-position = Vector2(5905, 306)
-shape = SubResource("RectangleShape2D_1fley")
-
-[connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]
+[node name="FinishCondition" parent="." instance=ExtResource("11_g2tmd")]
+position = Vector2(1842, 424)
