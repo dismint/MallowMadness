@@ -19,14 +19,17 @@ var just_expanded = 0
 var timer = 0
 
 # Define directions for each player
-@onready var down : String
-@onready var up : String
-@onready var left : String
-@onready var right : String
+@export var down : String
+@export var up : String
+@export var left : String
+@export var right : String
 
 # Define other player attributes
-@onready var starting_position : Vector2
-@onready var player_number : int
+@export var starting_position : Vector2
+@export var player_number : int
+
+# Animation Engine
+@onready var animation_player = $AnimationPlayer
 
 func reset_position():
 	PLAYER_UTILS.reset_player(self)
@@ -125,8 +128,14 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis(left, right)
 	if direction:
+		# Handle animation
+		if direction > 0:
+			animation_player.play("walk_right")
+		else:
+			animation_player.play("idle")
 		velocity.x = direction * SPEED
 	else:
+		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Handle the gravity.

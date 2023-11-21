@@ -1,5 +1,7 @@
 extends MallowPlayer
 
+@export var something : String
+
 func _ready():
 	down = "p1_down"
 	up = "p1_jump"
@@ -9,3 +11,5 @@ func _ready():
 	starting_position = Vector2(511, 548)
 	
 	player_number = 1
+	print("setting")
+	animation_player = $AnimationPlayer
