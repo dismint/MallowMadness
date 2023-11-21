@@ -66,7 +66,8 @@ func in_corridor():
 	return scale.y == TILE_SIZE
 
 func handle_y(delta):
-	if Input.is_action_just_pressed(down):
+	if Input.is_action_pressed(down) and check_move_condition(Vector2(0, 1)):
+		print(name)
 		velocity.y = 0
 		doing_pound = true
 	
