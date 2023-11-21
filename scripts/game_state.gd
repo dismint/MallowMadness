@@ -17,6 +17,6 @@ func add_players():
 
 func reset_positions():
 	for player in players:
-		# player.reset_position()
+		player.reset_position()
 		player.reset_size()
 	reset = false
