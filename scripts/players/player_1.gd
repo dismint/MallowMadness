@@ -11,5 +11,6 @@ func _ready():
 	starting_position = Vector2(511, 548)
 	
 	player_number = 1
-	print("setting")
+	
 	animation_player = $AnimationPlayer
+	GameState.add_player_movements(self, up, down, left, right)

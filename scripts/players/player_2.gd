@@ -9,3 +9,5 @@ func _ready():
 	starting_position = Vector2(701, 548)
 
 	player_number = 2
+	
+	GameState.add_player_movements(self, up, down, left, right)

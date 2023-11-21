@@ -22,5 +22,4 @@ func _on_body_entered(_body):
 			finish_game.emit()
 			
 			get_tree().change_scene_to_file("res://scenes/lvl_navi/level_menu.tscn")
-			print('game finished!')
 		crossed = 0

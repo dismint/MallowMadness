@@ -31,14 +31,41 @@ var timer = 0
 # Animation Engine
 @onready var animation_player = $AnimationPlayer
 
+var sticking = true
+var stuck_tiles = []
+var stuck_players = []
+
+func add_stuck_tile(tile):
+	stuck_tiles.append(tile)
+		
+func is_sticking():
+	return sticking
+
+# currently checking if velocity is in that direction
+# should be checking if the key is pressed
+func check_move_condition(direction) -> bool:
+	stuck_players = []
+	for tile in stuck_tiles:
+		for player in tile.get_stuck_players():
+			stuck_players.append(player)
+	var direction_code:int = (direction[0])*3 + (direction[1])
+	for player in stuck_players:
+		if player == self:
+			continue
+		var player_directions = GameState.get_player_directions(player)
+		var player_direction_key = player_directions[direction_code]
+		if not Input.is_action_pressed(player_direction_key):
+			return false
+	return true
+
 func reset_position():
 	PLAYER_UTILS.reset_player(self)
 func reset_size():
 	PLAYER_UTILS.reset_size(self)
-func is_squished():
+func in_corridor():
 	return scale.y == TILE_SIZE
 
-func handle_gravity(delta):
+func handle_y(delta):
 	if Input.is_action_just_pressed(down):
 		velocity.y = 0
 		doing_pound = true
@@ -54,7 +81,6 @@ func handle_gravity(delta):
 		return
 	
 	# Player collided with something
-	print("I collided with ", collision.get_collider().name) # For debugging
 	doing_pound = false
 	velocity.y = 0
 	var collider = collision.get_collider()
@@ -70,7 +96,7 @@ func should_reset_size(delta):
 	if (scale.y == scale.x):
 		return false
 	
-	if (is_squished()):
+	if (in_corridor()):
 		return false
 
 	timer += delta
@@ -88,7 +114,6 @@ func do_expand_collision():
 	
 	# We collided with something
 	var collider = collision.get_collider()
-	print("I expanded to ", collider.name) # For debugging
 
 	# We collided with a player, so let's launch them!
 	if collider.name.contains("Player"):
@@ -126,27 +151,31 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis(left, right)
-	if direction:
-		# Handle animation
-		if direction > 0:
-			animation_player.play("walk_right")
-			$Sprite2D.flip_h = false
-		else:
+	var can_move_left = false
+	var can_move_right = false
+	if Input.is_action_pressed(left):
+		can_move_left = check_move_condition(Vector2(-1, 0))
+		if can_move_left:
+			velocity.x = -1 * SPEED
 			animation_player.play("walk_right")
 			$Sprite2D.flip_h = true
-		velocity.x = direction * SPEED
-	else:
-		animation_player.play("idle")
+	if Input.is_action_pressed(right):
+		can_move_right = check_move_condition(Vector2(1, 0))
+		if can_move_right:
+			velocity.x = 1 * SPEED
+			animation_player.play("walk_right")
+			$Sprite2D.flip_h = false
+	if not (Input.is_action_pressed(left) or Input.is_action_pressed(right)) or not (can_move_left or can_move_right):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		animation_player.play("idle")
+		
 	# Handle the gravity.
 	if is_on_floor():
-		if not is_squished() and Input.is_action_just_pressed(up):
+		if not in_corridor() and Input.is_action_pressed(up) and check_move_condition(Vector2(0, -1)):
 			velocity.y = JUMP_VELOCITY
 	else:
-		handle_gravity(delta)
+		handle_y(delta)
 	
 	var old_velocity = Vector2(velocity.x, velocity.y)
 	move_and_slide()
-	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
+#	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
