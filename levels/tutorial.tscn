@@ -55,4 +55,4 @@ player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
 [node name="FinishCondition" parent="." instance=ExtResource("11_g2tmd")]
-position = Vector2(1842, 424)
+position = Vector2(7855, 423)

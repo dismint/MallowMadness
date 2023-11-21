@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func get_levels(path):
 	var dir = DirAccess.open(path)
+	
 	if dir != null:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
