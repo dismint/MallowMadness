@@ -131,8 +131,10 @@ func _physics_process(delta):
 		# Handle animation
 		if direction > 0:
 			animation_player.play("walk_right")
+			$Sprite2D.flip_h = false
 		else:
-			animation_player.play("idle")
+			animation_player.play("walk_right")
+			$Sprite2D.flip_h = true
 		velocity.x = direction * SPEED
 	else:
 		animation_player.play("idle")

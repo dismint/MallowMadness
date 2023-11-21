@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6pshpj7frrij"]
+[gd_scene load_steps=11 format=3 uid="uid://c6pshpj7frrij"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_n4jk4"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_nj7hv"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/obstacles/spikes/spikes_15.tscn" id="5_ppti4"]
 [ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/obstacles/spikes/spikes_5.tscn" id="6_w1ywd"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
-[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_lt6w3"]
-[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_kh68f"]
+[ext_resource type="PackedScene" uid="uid://b8y56drb0qw8o" path="res://scenes/players/player.tscn" id="10_42vqb"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_gp66e"]
 [ext_resource type="PackedScene" uid="uid://wrvhfx242ol2" path="res://scenes/obstacles/finish_condition.tscn" id="11_g2tmd"]
 
@@ -40,10 +39,15 @@ position = Vector2(6880, 560)
 [node name="Button" parent="." instance=ExtResource("7_n3vc3")]
 position = Vector2(4951, 384)
 
-[node name="Player1" parent="." instance=ExtResource("8_lt6w3")]
-position = Vector2(511, 548)
-collision_layer = 3
-collision_mask = 7
+[node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("10_gp66e")]
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="FinishCondition" parent="." instance=ExtResource("11_g2tmd")]
+position = Vector2(7855, 423)
+
+[node name="Player1" parent="." instance=ExtResource("10_42vqb")]
+position = Vector2(433, 533)
 down = "p1_down"
 up = "p1_jump"
 left = "p1_left"
@@ -51,18 +55,11 @@ right = "p1_right"
 starting_position = Vector2(511, 548)
 player_number = 1
 
-[node name="Player2" parent="." instance=ExtResource("9_kh68f")]
-position = Vector2(706, 543)
+[node name="Player2" parent="." instance=ExtResource("10_42vqb")]
+position = Vector2(675, 538)
 down = "p2_down"
 up = "p2_jump"
 left = "p2_left"
 right = "p2_right"
 starting_position = Vector2(701, 548)
 player_number = 2
-
-[node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("10_gp66e")]
-player1 = NodePath("../Player1")
-player2 = NodePath("../Player2")
-
-[node name="FinishCondition" parent="." instance=ExtResource("11_g2tmd")]
-position = Vector2(7855, 423)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://66lsb06fbohs" path="res://assets/player_walk.png" id="2_4e03w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
+size = Vector2(12, 10)
 
 [sub_resource type="Animation" id="Animation_ho2ag"]
 length = 0.001
@@ -17,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_xkdlh"]
@@ -60,19 +61,20 @@ _data = {
 "walk_right": SubResource("Animation_fpkyj")
 }
 
-[node name="Player2" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(5, 5)
-collision_layer = 2
-collision_mask = 3
+collision_layer = 3
+collision_mask = 7
 script = ExtResource("1_tk3c6")
 
-[node name="P2CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-07, 3)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aatbm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4e03w")
 hframes = 13
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
