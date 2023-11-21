@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8y56drb0qw8o"]
+
+[ext_resource type="Script" path="res://scripts/players/mallow_player.gd" id="1_mvsxf"]
+[ext_resource type="Texture2D" uid="uid://66lsb06fbohs" path="res://assets/player_walk.png" id="2_vfse1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
+size = Vector2(12, 10)
+
+[sub_resource type="Animation" id="Animation_ho2ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xkdlh"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fpkyj"]
+resource_name = "walk_right"
+length = 0.498
+loop_mode = 1
+step = 0.083
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4oyy"]
+_data = {
+"RESET": SubResource("Animation_ho2ag"),
+"idle": SubResource("Animation_xkdlh"),
+"walk_right": SubResource("Animation_fpkyj")
+}
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 7
+script = ExtResource("1_mvsxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-07, 3)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_aatbm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vfse1")
+hframes = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m4oyy")
+}
