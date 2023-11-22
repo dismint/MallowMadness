@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dinok8o15bblm"]
+[gd_scene load_steps=14 format=3 uid="uid://dxt3uopchger2"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_6a26x"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_wq4ky"]
@@ -9,11 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_t1ky8"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="8_fqov7"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_g0t2i"]
-[ext_resource type="Script" path="res://scripts/players/player_1.gd" id="9_gnjcr"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_wla32"]
-[ext_resource type="Script" path="res://scripts/players/player_2.gd" id="11_bmtkr"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_y01f1"]
-[ext_resource type="PackedScene" uid="uid://b6uo3xsunlr0a" path="res://scenes/obstacles/sticky.tscn" id="12_slt5y"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/sticky.tscn" id="12_slt5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
@@ -48,12 +46,9 @@ position = Vector2(4951, 384)
 
 [node name="Player1" parent="." instance=ExtResource("8_fqov7")]
 position = Vector2(511, 548)
-script = ExtResource("9_gnjcr")
-something = ""
 
 [node name="Player2" parent="." instance=ExtResource("9_g0t2i")]
 position = Vector2(701, 548)
-script = ExtResource("11_bmtkr")
 
 [node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("10_wla32")]
 player1 = NodePath("../Player1")

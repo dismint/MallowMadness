@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dt0iwrgmyjr4s"]
 
-[ext_resource type="Script" path="res://scripts/players/mallow_player.gd" id="1_tk3c6"]
+[ext_resource type="Script" path="res://scripts/players/player_2.gd" id="1_ngq3a"]
 [ext_resource type="Texture2D" uid="uid://66lsb06fbohs" path="res://assets/player_walk.png" id="2_4e03w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
@@ -61,15 +61,22 @@ _data = {
 "walk_right": SubResource("Animation_fpkyj")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player2" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 collision_layer = 3
 collision_mask = 7
-script = ExtResource("1_tk3c6")
+script = ExtResource("1_ngq3a")
+down = null
+up = null
+left = null
+right = null
+starting_position = null
+player_number = null
+original_scale_x = null
+original_scale_y = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.8147e-07, 3)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aatbm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
