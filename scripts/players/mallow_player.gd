@@ -24,7 +24,7 @@ var player_number : int
 
 # Init other player attributes
 @onready var starting_position = Vector2(position.x, position.y)
-@onready var original_scale = Vector2(scale.x, scale.y)
+@onready var starting_scale = Vector2(scale.x, scale.y)
 
 # Animation Engine
 @onready var animation_player = $AnimationPlayer

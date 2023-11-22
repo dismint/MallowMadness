@@ -1,6 +1,6 @@
 
 static func reset_size(player: MallowPlayer):
-	player.scale = player.original_scale
+	player.scale = player.starting_scale
 
 static func reset_player(player: MallowPlayer):
 	player.doing_pound = false
