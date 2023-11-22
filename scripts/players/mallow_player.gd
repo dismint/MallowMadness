@@ -72,12 +72,9 @@ func in_corridor():
 func handle_y(delta):
 # currently is_action_pressed and not just pressed, only do it once
 	if can_pound and Input.is_action_pressed(down) and check_move_condition(Vector2(0, 1)):
-		print(name)
 		velocity.y = 0
 		doing_pound = true
 		can_pound = false
-		
-#	print("current: " + str(position.y))
 		
 	if not doing_pound:
 		velocity.y += gravity * delta
@@ -88,17 +85,11 @@ func handle_y(delta):
 	var collision = move_and_collide(Vector2(0, velocity.y))
 	if not collision:
 		return
-	print(velocity.y)
 	
 	# Player collided with something
 	doing_pound = false
 	velocity.y = 0
 	var collider = collision.get_collider()
-	if collider:
-		print(collider)
-		print(velocity.y)
-		print(is_on_floor())
-#		print("after: " + str(position.y))
 	if not collider.name.contains("Player"):
 		return
 	
@@ -195,9 +186,8 @@ func _physics_process(delta):
 		if not in_corridor() and Input.is_action_pressed(up) and check_move_condition(Vector2(0, -1)):
 			velocity.y = JUMP_VELOCITY
 	else:
-		print(name + ' not on floor')
 		handle_y(delta)
 	
 	var old_velocity = Vector2(velocity.x, velocity.y)
 	move_and_slide()
-#	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
+	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
