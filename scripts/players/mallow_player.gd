@@ -48,15 +48,49 @@ func not_stuck(direction) -> bool:
 	stuck_players = []
 	for tile in stuck_tiles:
 		for player in tile.get_stuck_players():
-			stuck_players.append(player)
+			if not PLAYER_UTILS.player_equals(player, self):
+				stuck_players.append(player)
 	var direction_code:int = (direction[0])*3 + (direction[1])
 	for player in stuck_players:
-		if PLAYER_UTILS.player_equals(player, self):
-			continue
 		var player_direction_key = GameState.get_player_directions(player)[direction_code]
 		if not Input.is_action_pressed(player_direction_key):
 			return false
 	return true
+
+# Given direction, returns player that is pressed on iff that player collided with a wall
+func pressed_on(direction):
+	# Check if player is moving into something
+	var collision = move_and_collide(direction)
+	if not collision:
+		return null
+	
+	# Player collided with something
+	var collider = collision.get_collider()
+	if not collider.name.contains("Player"):
+		return null
+	
+	# Collided with player, so check if player collides with wall
+	var collision_2 = collider.move_and_collide(direction)
+	if not collision_2:
+		return null
+	
+	# Collided player collided with something
+	var collider_2 = collision_2.get_collider()
+	if not collider_2.name == "MapLayout": # TODO This naming is really not safe.
+		return null
+	
+	# We must be pressing player 2 into a wall
+	return collider
+
+func do_press_pound(collider):
+	if not collider:
+		return
+	
+	# Squish the player vertically!
+	collider.scale.x *= POUND_SCALE
+	var temp_y = collider.scale.y
+	collider.scale.y *= 1 / POUND_SCALE
+	collider.position.y -= (collider.scale.y - temp_y) # Adjust so player does not get stuck in ground
 
 func do_ground_pound(delta):
 	# Player is ground-pounding
@@ -95,10 +129,12 @@ func _physics_process(delta):
 		velocity.x = -1 * SPEED
 		animation_player.play("walk_right")
 		$Sprite2D.flip_h = true
+		do_press_pound(pressed_on(Vector2(-1, 0)))
 	elif Input.is_action_pressed(right) and not_stuck(Vector2(1, 0)):
 		velocity.x = 1 * SPEED
 		animation_player.play("walk_right")
 		$Sprite2D.flip_h = false
+		do_press_pound(pressed_on(Vector2(1, 0)))
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation_player.play("idle")
