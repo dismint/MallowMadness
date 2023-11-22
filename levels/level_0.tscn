@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://hnr4ce5xrvbu"]
 
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="1_hibg3"]
-[ext_resource type="PackedScene" path="res://scenes/players/player.tscn" id="2_2ph8t"]
+[ext_resource type="PackedScene" uid="uid://cef1401y3bf00" path="res://scenes/players/player.tscn" id="2_2ph8t"]
 [ext_resource type="PackedScene" uid="uid://qwed1xqwjghh" path="res://scenes/terrain/grass.tscn" id="3_mo81a"]
 
 [node name="Level" type="Node2D"]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7kjm17udogx" path="res://scenes/obstacles/spikes/spikes_15.tscn" id="5_ppti4"]
 [ext_resource type="PackedScene" uid="uid://cmqqgvd1p6q8" path="res://scenes/obstacles/spikes/spikes_5.tscn" id="6_w1ywd"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
-[ext_resource type="PackedScene" path="res://scenes/players/player.tscn" id="10_42vqb"]
+[ext_resource type="PackedScene" uid="uid://cef1401y3bf00" path="res://scenes/players/player.tscn" id="10_42vqb"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_gp66e"]
 [ext_resource type="PackedScene" path="res://scenes/obstacles/finish_condition.tscn" id="11_g2tmd"]
 

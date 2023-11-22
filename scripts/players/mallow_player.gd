@@ -14,6 +14,7 @@ const TILE_SIZE = 1.75 # Number obtained through experimentation
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
+var can_pound = true
 var curr_pound = 0
 var just_expanded = 0
 var timer = 0
@@ -54,6 +55,9 @@ func check_move_condition(direction) -> bool:
 			continue
 		var player_directions = GameState.get_player_directions(player)
 		var player_direction_key = player_directions[direction_code]
+#		if "down" in player_direction_key:
+#			if not Input.is_action_just_pressed(player_direction_key):
+#				return false
 		if not Input.is_action_pressed(player_direction_key):
 			return false
 	return true
@@ -64,13 +68,17 @@ func reset_size():
 	PLAYER_UTILS.reset_size(self)
 func in_corridor():
 	return scale.y == TILE_SIZE
-
+	
 func handle_y(delta):
-	if Input.is_action_pressed(down) and check_move_condition(Vector2(0, 1)):
+# currently is_action_pressed and not just pressed, only do it once
+	if can_pound and Input.is_action_pressed(down) and check_move_condition(Vector2(0, 1)):
 		print(name)
 		velocity.y = 0
 		doing_pound = true
-	
+		can_pound = false
+		
+#	print("current: " + str(position.y))
+		
 	if not doing_pound:
 		velocity.y += gravity * delta
 		return
@@ -80,11 +88,17 @@ func handle_y(delta):
 	var collision = move_and_collide(Vector2(0, velocity.y))
 	if not collision:
 		return
+	print(velocity.y)
 	
 	# Player collided with something
 	doing_pound = false
 	velocity.y = 0
 	var collider = collision.get_collider()
+	if collider:
+		print(collider)
+		print(velocity.y)
+		print(is_on_floor())
+#		print("after: " + str(position.y))
 	if not collider.name.contains("Player"):
 		return
 	
@@ -92,6 +106,8 @@ func handle_y(delta):
 	collider.scale.y *= POUND_SCALE
 	collider.curr_pound += 1
 	collider.timer = 0
+	
+
 
 func should_reset_size(delta):	
 	if (scale.y == scale.x):
@@ -149,6 +165,10 @@ func _physics_process(delta):
 	if bool(just_expanded): # We need to process expand collisions on the next frame
 		do_expand_collision()
 		just_expanded = 0
+		
+	# only allows one ground pound per down press
+	if Input.is_action_just_released(down):
+		can_pound = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -175,6 +195,7 @@ func _physics_process(delta):
 		if not in_corridor() and Input.is_action_pressed(up) and check_move_condition(Vector2(0, -1)):
 			velocity.y = JUMP_VELOCITY
 	else:
+		print(name + ' not on floor')
 		handle_y(delta)
 	
 	var old_velocity = Vector2(velocity.x, velocity.y)

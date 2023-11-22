@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8y56drb0qw8o"]
+[gd_scene load_steps=8 format=3 uid="uid://cef1401y3bf00"]
 
 [ext_resource type="Script" path="res://scripts/players/mallow_player.gd" id="1_mvsxf"]
 [ext_resource type="Texture2D" uid="uid://66lsb06fbohs" path="res://assets/player_walk.png" id="2_vfse1"]
@@ -69,7 +69,6 @@ script = ExtResource("1_mvsxf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.8147e-07, 3)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aatbm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
