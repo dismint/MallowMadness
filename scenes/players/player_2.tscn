@@ -66,14 +66,6 @@ scale = Vector2(5, 5)
 collision_layer = 3
 collision_mask = 7
 script = ExtResource("1_ngq3a")
-down = null
-up = null
-left = null
-right = null
-starting_position = null
-player_number = null
-original_scale_x = null
-original_scale_y = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.8147e-07, 3)

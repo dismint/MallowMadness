@@ -7,7 +7,7 @@ const PLAYER_UTILS = preload("player_utils.gd")
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 const POUND_SCALE = 0.75
-const POUND_MIN = 1
+const POUND_MIN = 2 # It looks like this number is min before we get weird bugs
 const NUM_POUND_SPRITES = 4 # Use later for making pound sprites
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -88,9 +88,7 @@ func do_press_pound(collider):
 	
 	# Squish the player vertically!
 	collider.scale.x *= POUND_SCALE
-	var temp_y = collider.scale.y
 	collider.scale.y *= 1 / POUND_SCALE
-	collider.position.y -= (collider.scale.y - temp_y) # Adjust so player does not get stuck in ground
 
 func do_ground_pound(delta):
 	# Player is ground-pounding
