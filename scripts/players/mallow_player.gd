@@ -15,6 +15,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
 var can_pound = true
 
+# Current move_and_slide() has a carrying bug. Use these variables to hack it
+var carrying = false
+var carrier = null
+
 # Define variables for specific player
 var down : String
 var up : String
@@ -57,8 +61,29 @@ func not_stuck(direction) -> bool:
 			return false
 	return true
 
+# Sets the player this player landed on as carrying
+func set_carrying():
+	# Check if player is landing on something
+	var collision = move_and_collide(Vector2(0, 1))
+	if not collision:
+		return
+	
+	# Player collided onto something
+	var collider = collision.get_collider()
+	if not collider.name.contains("Player"):
+		# We jumped off the carrier, reset attributes
+		carrying = false
+		if carrier:
+			carrier.carrying = false
+			carrier = null
+		return
+	
+	# Collided with player, so set corresponding attributes
+	carrier = collider
+	carrier.carrying = true
+
 # Given direction, returns player that is pressed on iff that player collided with a wall
-func pressed_on(direction):
+func get_pressed_player(direction):
 	# Check if player is moving into something
 	var collision = move_and_collide(direction)
 	if not collision:
@@ -123,23 +148,23 @@ func _physics_process(delta):
 		can_pound = true
 
 	# Handle x-movement
-	if Input.is_action_pressed(left) and not_stuck(Vector2(-1, 0)):
+	if Input.is_action_pressed(left) and not_stuck(Vector2(-1, 0)) and not carrying:
 		velocity.x = -1 * SPEED
 		animation_player.play("walk_right")
 		$Sprite2D.flip_h = true
-		do_press_pound(pressed_on(Vector2(-1, 0)))
-	elif Input.is_action_pressed(right) and not_stuck(Vector2(1, 0)):
+		do_press_pound(get_pressed_player(Vector2(-1, 0)))
+	elif Input.is_action_pressed(right) and not_stuck(Vector2(1, 0)) and not carrying:
 		velocity.x = 1 * SPEED
 		animation_player.play("walk_right")
 		$Sprite2D.flip_h = false
-		do_press_pound(pressed_on(Vector2(1, 0)))
+		do_press_pound(get_pressed_player(Vector2(1, 0)))
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation_player.play("idle")
 		
 	# Handle y-movement
 	if is_on_floor():
-		if Input.is_action_pressed(up) and not_stuck(Vector2(0, -1)):
+		if Input.is_action_pressed(up) and not_stuck(Vector2(0, -1)) and not carrying:
 			velocity.y = JUMP_VELOCITY
 	else:
 		if Input.is_action_pressed(down) and not_stuck(Vector2(0, 1)) and can_pound:
@@ -149,6 +174,7 @@ func _physics_process(delta):
 
 		if not doing_pound:
 			velocity.y += gravity * delta # Add gravity for free-fall
+			set_carrying()
 		else:
 			do_ground_pound(delta)
 
