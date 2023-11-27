@@ -174,9 +174,11 @@ func _physics_process(delta):
 
 		if not doing_pound:
 			velocity.y += gravity * delta # Add gravity for free-fall
-			set_carrying()
 		else:
 			do_ground_pound(delta)
+
+	# Block instance where player can carry another player
+	set_carrying()
 
 	# Using this player's current velocities, move them
 	var old_velocity = Vector2(velocity.x, velocity.y)
