@@ -196,6 +196,8 @@ func _physics_process(delta):
 			if UP_PRESS and not_stuck(Vector2(0, -1)) and not carrying:
 				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
 		else:
+			# In air so slow down movement
+			velocity.x /= 3/2
 			# Set it to in air animation
 			animation = "set"
 			if velocity.y < 0:

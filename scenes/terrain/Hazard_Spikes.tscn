@@ -1,7 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cneuwy3kby8rc"]
 
 [ext_resource type="Texture2D" uid="uid://bmo7o4kag5lk2" path="res://assets/tileset.png" id="1_t6cg6"]
-[ext_resource type="Script" path="res://scripts/obstacles/Hazard_Spikes.gd" id="2_4wkkt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xoqb"]
 texture = ExtResource("1_t6cg6")
@@ -41,8 +40,22 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_3xoqb")
 
+[sub_resource type="GDScript" id="GDScript_oxu52"]
+script/source = "extends TileMap
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _rocess(delta):
+	pass
+"
+
 [node name="Hazard_Spikes" type="TileMap"]
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_wtuuc")
 format = 2
-script = ExtResource("2_4wkkt")
+script = SubResource("GDScript_oxu52")
