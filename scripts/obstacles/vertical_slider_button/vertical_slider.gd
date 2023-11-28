@@ -17,7 +17,7 @@ func _physics_process(_delta):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# when button is pressed slider should move up
-	new_position = Vector2(position.x, position.y -120)
+	new_position = Vector2(position.x, position.y -160)
 	rest_position = position
 	pass # Replace with function body.
 

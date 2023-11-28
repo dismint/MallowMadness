@@ -6,8 +6,8 @@ const PLAYER_UTILS = preload("player_utils.gd")
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
-const BONUS_SCALE = 100
-const POUND_SCALE = 0.75
+const BONUS_SCALE = 50
+const POUND_SCALE = 0.8
 const POUND_MIN = 2 # It looks like this number is min before we get weird bugs
 const NUM_POUND_SPRITES = 4 # Use later for making pound sprites
 
@@ -216,15 +216,17 @@ func _physics_process(delta):
 		# Block instance where player can carry another player
 		set_carrying()
 
-	# Using this player's current velocities, move them
-	var old_velocity = Vector2(velocity.x, velocity.y)
-
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name.contains("Hazard"):
 			GameState.reset_positions()
 			return
+		elif collision.get_normal().y == 1:
+			velocity.y = 0
+		
+	# Using this player's current velocities, move them
+	var old_velocity = Vector2(velocity.x, velocity.y)	
 
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
 	
