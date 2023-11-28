@@ -14,6 +14,7 @@ const NUM_POUND_SPRITES = 4 # Use later for making pound sprites
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
 var can_pound = true
+var pound_lock = false
 
 # Current move_and_slide() has a carrying bug. Use these variables to hack it
 var carrying = false
@@ -117,14 +118,16 @@ func do_press_pound(collider):
 
 func do_ground_pound(delta):
 	# Player is ground-pounding
-	velocity.y = 4 * gravity * delta
+	velocity.y = 1 * gravity * delta
 	var collision = move_and_collide(Vector2(0, velocity.y))
 	if not collision:
 		return
 	
 	# Player collided with something
 	doing_pound = false
-	velocity.y = 0
+	pound_lock = true
+	velocity.y += gravity * delta
+	velocity.x = 0
 	var collider = collision.get_collider()
 	if not collider.name.contains("Player"):
 		return
@@ -132,55 +135,90 @@ func do_ground_pound(delta):
 	# Collided with player so squish them!
 	collider.scale.y *= POUND_SCALE
 	collider.scale.x *= 1 / POUND_SCALE
-
+	
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "pound":
+		pound_lock = false
+	
 func _ready():
 	GameState.add_player_movements(self, up, down, left, right)
 
 func _physics_process(delta):
+	# Keep track of which animation we should be doing
+	var animation = ""
+	var frame = -1
+	
+	# Useful constants
+	var LEFT_PRESS = Input.is_action_pressed(left)
+	var RIGHT_PRESS = Input.is_action_pressed(right)
+	var UP_PRESS = Input.is_action_pressed(up)
+	var DOWN_PRESS = Input.is_action_pressed(down)
+	
 	if GameState.reset or scale.x < POUND_MIN or scale.y < POUND_MIN:
 		GameState.reset_positions()
 		return
 
 	# Input.is_action_pressed instead of Input.is_action_just_pressed allows margin of error
 	# when players try to move when pressing the same movement keys at the same time.
-	# Uses Input.is_action_just_released to block 2nd ground-pound.
-	if Input.is_action_just_released(down):
+	if Input.is_action_just_pressed(down):
 		can_pound = true
 
 	# Handle x-movement
-	if Input.is_action_pressed(left) and not_stuck(Vector2(-1, 0)) and not carrying:
-		velocity.x = -1 * SPEED
-		animation_player.play("walk_right")
-		$Sprite2D.flip_h = true
-		do_press_pound(get_pressed_player(Vector2(-1, 0)))
-	elif Input.is_action_pressed(right) and not_stuck(Vector2(1, 0)) and not carrying:
-		velocity.x = 1 * SPEED
-		animation_player.play("walk_right")
-		$Sprite2D.flip_h = false
-		do_press_pound(get_pressed_player(Vector2(1, 0)))
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animation_player.play("idle")
-		
-	# Handle y-movement
-	if is_on_floor():
-		if Input.is_action_pressed(up) and not_stuck(Vector2(0, -1)) and not carrying:
-			velocity.y = JUMP_VELOCITY
-	else:
-		if Input.is_action_pressed(down) and not_stuck(Vector2(0, 1)) and can_pound:
-			velocity.y = 0
-			doing_pound = true
-			can_pound = false
-
-		if not doing_pound:
-			velocity.y += gravity * delta # Add gravity for free-fall
+	if not pound_lock:
+		if LEFT_PRESS and not_stuck(Vector2(-1, 0)) and not carrying:
+			velocity.x = -1 * SPEED
+			animation = "walk"
+			do_press_pound(get_pressed_player(Vector2(-1, 0)))
+		elif RIGHT_PRESS and not_stuck(Vector2(1, 0)) and not carrying:
+			velocity.x = 1 * SPEED
+			animation = "walk"
+			do_press_pound(get_pressed_player(Vector2(1, 0)))
 		else:
-			do_ground_pound(delta)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		# Handle y-movement
+		if is_on_floor():
+			if UP_PRESS and not_stuck(Vector2(0, -1)) and not carrying:
+				velocity.y = JUMP_VELOCITY
+		else:
+			# Set it to in air animation
+			animation = "set"
+			if velocity.y < 0:
+				frame = 15
+			else:
+				frame = 0
+				
+			if DOWN_PRESS and not_stuck(Vector2(0, 1)) and can_pound:
+				velocity.y = 0
+				doing_pound = true
+				can_pound = false
 
-	# Block instance where player can carry another player
-	set_carrying()
+			if not doing_pound:
+				velocity.y += gravity * delta # Add gravity for free-fall
+			else:
+				do_ground_pound(delta)
+
+		# Block instance where player can carry another player
+		set_carrying()
 
 	# Using this player's current velocities, move them
 	var old_velocity = Vector2(velocity.x, velocity.y)
 	move_and_slide()
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
+	
+	# Handle animations
+	if pound_lock:
+		animation_player.play("pound")
+	elif animation == "walk":
+		animation_player.play("walk")
+	elif animation == "set":
+		animation_player.stop(true)
+		$Sprite2D.frame = frame
+	else:
+		animation_player.play("idle")
+		
+	# Handle flips
+	if LEFT_PRESS:
+		$Sprite2D.flip_h = true
+	elif RIGHT_PRESS:
+		$Sprite2D.flip_h = false

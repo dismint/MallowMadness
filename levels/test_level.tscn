@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_g0t2i"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_wla32"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_y01f1"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/sticky.tscn" id="12_slt5y"]
+[ext_resource type="PackedScene" uid="uid://b6uo3xsunlr0a" path="res://scenes/obstacles/sticky.tscn" id="12_slt5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
