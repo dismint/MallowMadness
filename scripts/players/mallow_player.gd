@@ -94,7 +94,10 @@ func get_pressed_player(direction):
 	
 	# Player collided with something
 	var collider = collision.get_collider()
-	if not collider.name.contains("Player"):
+	if collider.name.contains("Hazard"):
+		GameState.reset_positions()
+		return
+	elif not collider.name.contains("Player"):
 		return null
 	
 	# Collided with player, so check if player collides with wall
@@ -215,7 +218,14 @@ func _physics_process(delta):
 
 	# Using this player's current velocities, move them
 	var old_velocity = Vector2(velocity.x, velocity.y)
+
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().name.contains("Hazard"):
+			GameState.reset_positions()
+			return
+
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
 	
 	# Handle animations

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://hnr4ce5xrvbu"]
+[gd_scene load_steps=7 format=3 uid="uid://hnr4ce5xrvbu"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_dulec"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="1_hibg3"]
 [ext_resource type="PackedScene" uid="uid://qwed1xqwjghh" path="res://scenes/terrain/Map_Grass.tscn" id="3_mo81a"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="3_w2tf4"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="4_vrga3"]
+[ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="6_hs1rp"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dulec")
@@ -28,3 +29,6 @@ position = Vector2(262, 417)
 
 [node name="Player2" parent="." instance=ExtResource("4_vrga3")]
 position = Vector2(389, 417)
+
+[node name="Hazard_Spikes" parent="." instance=ExtResource("6_hs1rp")]
+layer_0/tile_data = PackedInt32Array(655384, 393216, 0, 655374, 393216, 2, 655375, 393216, 2, 655376, 393216, 2, 655377, 393216, 2, 655378, 393216, 2, 33, 393216, 4)
