@@ -1,27 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://wrvhfx242ol2"]
+[gd_scene load_steps=3 format=3 uid="uid://wrvhfx242ol2"]
 
-[ext_resource type="Texture2D" uid="uid://0lvr53x3r5ow" path="res://assets/door_mallow_madness.jpg" id="1_62u03"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="2_g65ig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg7h"]
-size = Vector2(310.575, 301.039)
+size = Vector2(544.099, 301.039)
 
 [node name="FinishCondition" type="Node2D"]
 position = Vector2(41.8062, -79)
 
-[node name="Door" type="Sprite2D" parent="."]
-position = Vector2(-38.7128, 73.4495)
-scale = Vector2(0.156099, 0.156099)
-texture = ExtResource("1_62u03")
-
-[node name="FinishLine" type="Area2D" parent="Door"]
-position = Vector2(4254.37, 1661.98)
-scale = Vector2(0.891083, 0.891083)
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(625.39, 332.883)
+scale = Vector2(0.139097, 0.139097)
 script = ExtResource("2_g65ig")
 
-[node name="DoorShape" type="CollisionShape2D" parent="Door/FinishLine"]
+[node name="DoorShape" type="CollisionShape2D" parent="FinishLine"]
 position = Vector2(-4753.48, -1875.54)
 scale = Vector2(2.44443, 4.84771)
 shape = SubResource("RectangleShape2D_tdg7h")
 
-[connection signal="body_entered" from="Door/FinishLine" to="Door/FinishLine" method="_on_body_entered"]
+[connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]

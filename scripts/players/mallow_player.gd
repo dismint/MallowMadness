@@ -126,8 +126,7 @@ func change_size(vertical):
 func do_press_pound(collider):
 	if not collider:
 		return
-	
-	# Squish the player vertically!
+		
 	collider.change_size(true)
 
 func do_ground_pound(delta):
@@ -197,7 +196,7 @@ func _physics_process(delta):
 				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
 		else:
 			# In air so slow down movement
-			velocity.x /= 3/2
+			velocity.x /= 1.5
 			# Set it to in air animation
 			animation = "set"
 			if velocity.y < 0:
