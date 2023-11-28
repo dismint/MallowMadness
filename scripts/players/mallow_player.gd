@@ -6,6 +6,7 @@ const PLAYER_UTILS = preload("player_utils.gd")
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
+const BONUS_SCALE = 100
 const POUND_SCALE = 0.75
 const POUND_MIN = 2 # It looks like this number is min before we get weird bugs
 const NUM_POUND_SPRITES = 4 # Use later for making pound sprites
@@ -15,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
 var can_pound = true
 var pound_lock = false
+var scale_mag = 0
 
 # Current move_and_slide() has a carrying bug. Use these variables to hack it
 var carrying = false
@@ -102,19 +104,28 @@ func get_pressed_player(direction):
 	
 	# Collided player collided with something
 	var collider_2 = collision_2.get_collider()
-	if not collider_2.name == "MapLayout": # TODO This naming is really not safe.
+	if not collider_2.name.contains("Map"): # TODO This naming is really not safe.
 		return null
 	
 	# We must be pressing player 2 into a wall
 	return collider
+
+func change_size(vertical):
+	if vertical:
+		scale.x *= POUND_SCALE
+		scale.y *= 1 / POUND_SCALE
+		scale_mag += 1
+	else:
+		scale.y *= POUND_SCALE
+		scale.x *= 1 / POUND_SCALE
+		scale_mag -= 1
 
 func do_press_pound(collider):
 	if not collider:
 		return
 	
 	# Squish the player vertically!
-	collider.scale.x *= POUND_SCALE
-	collider.scale.y *= 1 / POUND_SCALE
+	collider.change_size(true)
 
 func do_ground_pound(delta):
 	# Player is ground-pounding
@@ -126,15 +137,14 @@ func do_ground_pound(delta):
 	# Player collided with something
 	doing_pound = false
 	pound_lock = true
-	velocity.y += gravity * delta
+	velocity.y += 2 * gravity * delta
 	velocity.x = 0
 	var collider = collision.get_collider()
 	if not collider.name.contains("Player"):
 		return
 	
 	# Collided with player so squish them!
-	collider.scale.y *= POUND_SCALE
-	collider.scale.x *= 1 / POUND_SCALE
+	collider.change_size(false)
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "pound":
@@ -154,7 +164,9 @@ func _physics_process(delta):
 	var UP_PRESS = Input.is_action_pressed(up)
 	var DOWN_PRESS = Input.is_action_pressed(down)
 	
+	# print(player_number, scale)
 	if GameState.reset or scale.x < POUND_MIN or scale.y < POUND_MIN:
+		# print(player_number, "resetting")
 		GameState.reset_positions()
 		return
 
@@ -179,7 +191,7 @@ func _physics_process(delta):
 		# Handle y-movement
 		if is_on_floor():
 			if UP_PRESS and not_stuck(Vector2(0, -1)) and not carrying:
-				velocity.y = JUMP_VELOCITY
+				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
 		else:
 			# Set it to in air animation
 			animation = "set"

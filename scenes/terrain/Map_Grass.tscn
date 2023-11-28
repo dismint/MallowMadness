@@ -46,7 +46,7 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_s5vuh")
 
-[node name="Grass" type="TileMap"]
+[node name="Map_Grass" type="TileMap"]
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_mal4b")
 cell_quadrant_size = 64
