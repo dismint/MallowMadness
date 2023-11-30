@@ -16,10 +16,12 @@ func _process(_delta):
 
 func _on_body_entered(_body):
 	crossed += 1
-	
-	if crossed == 2:
-		if len(get_overlapping_bodies()) == 4:
+
+	# Parameter starts off with 1, so shift the checkers up by 1.
+	if crossed == 3:
+		
+		if len(get_overlapping_bodies()) == 3:
 			finish_game.emit()
 			
 			get_tree().change_scene_to_file("res://scenes/lvl_navi/level_menu.tscn")
-		crossed = 0
+		crossed = 1
