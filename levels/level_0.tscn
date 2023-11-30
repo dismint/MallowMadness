@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hnr4ce5xrvbu"]
+[gd_scene load_steps=12 format=3 uid="uid://hnr4ce5xrvbu"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_dulec"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="1_hibg3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="7_qwhhu"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="8_4y54s"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="9_26b3a"]
+[ext_resource type="PackedScene" uid="uid://2jos558aany6" path="res://scenes/terrain/Map_Training.tscn" id="10_u8k31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg7h"]
 size = Vector2(544.099, 301.039)
@@ -60,5 +61,7 @@ script = ExtResource("9_26b3a")
 position = Vector2(25105.6, 17068.9)
 scale = Vector2(2.44443, 4.84771)
 shape = SubResource("RectangleShape2D_tdg7h")
+
+[node name="Map_Training" parent="." instance=ExtResource("10_u8k31")]
 
 [connection signal="body_entered" from="FinishCondition/FinishLine" to="FinishCondition/FinishLine" method="_on_body_entered" flags=18]
