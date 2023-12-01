@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxt3uopchger2"]
+[gd_scene load_steps=15 format=3 uid="uid://dxt3uopchger2"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_6a26x"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_wq4ky"]
@@ -11,10 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_g0t2i"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_wla32"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_y01f1"]
-[ext_resource type="PackedScene" uid="uid://w6t08e5hjac" path="res://scenes/obstacles/sticky_draft.tscn" id="12_vrxin"]
+[ext_resource type="PackedScene" uid="uid://diawoduotlhdk" path="res://scenes/obstacles/smores_3/cracker.tscn" id="13_rc6td"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi277"]
+size = Vector2(38, 38)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_6a26x")
@@ -62,16 +65,14 @@ script = ExtResource("11_y01f1")
 position = Vector2(5905, 306)
 shape = SubResource("RectangleShape2D_1fley")
 
-[node name="RigidBody2D" parent="." instance=ExtResource("12_vrxin")]
-position = Vector2(1024, 530)
+[node name="RigidBody2D" type="RigidBody2D" parent="Finish Line"]
 
-[node name="RigidBody2D2" parent="." instance=ExtResource("12_vrxin")]
-position = Vector2(231, 535)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line/RigidBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_wi277")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="RigidBody2D3" parent="." instance=ExtResource("12_vrxin")]
-position = Vector2(344, 539)
-
-[node name="RigidBody2D4" parent="." instance=ExtResource("12_vrxin")]
-position = Vector2(1330, 521)
+[node name="Area2D" parent="." instance=ExtResource("13_rc6td")]
+position = Vector2(906, 532)
 
 [connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]

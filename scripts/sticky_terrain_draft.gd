@@ -24,6 +24,4 @@ func _on_body_entered(body):
 	if not following and body.name.contains("Player"):
 		following = body
 		delta_position = body.get_position() - position
-		print(body.get_position())
-		print(position)
 		follow_player()

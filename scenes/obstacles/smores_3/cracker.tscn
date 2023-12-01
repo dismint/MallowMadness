@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://diawoduotlhdk"]
+
+[ext_resource type="TileSet" uid="uid://bmffok185xqu7" path="res://assets/sticky.tres" id="1_4whxx"]
+[ext_resource type="Script" path="res://scripts/obstacles/smores_3/cracker.gd" id="1_a2nqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pdof"]
+size = Vector2(200, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnbx6"]
+size = Vector2(200, 40)
+
+[node name="Cracker" type="Area2D"]
+script = ExtResource("1_a2nqo")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 2.66454e-15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(100, 20.5)
+shape = SubResource("RectangleShape2D_6pdof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(100, 20)
+shape = SubResource("RectangleShape2D_fnbx6")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_4whxx")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

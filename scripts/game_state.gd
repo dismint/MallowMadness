@@ -16,7 +16,6 @@ func add_players(node):
 	players = []
 	for i in num_players:
 		players.append(node.get_node("Player"+str(i+1)))
-	print(players)
 
 func reset_positions():
 	for player in players:
