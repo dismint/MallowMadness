@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_g0t2i"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_wla32"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_y01f1"]
-[ext_resource type="PackedScene" uid="uid://b6uo3xsunlr0a" path="res://scenes/obstacles/sticky.tscn" id="12_slt5y"]
+[ext_resource type="PackedScene" uid="uid://w6t08e5hjac" path="res://scenes/obstacles/sticky_draft.tscn" id="12_vrxin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
@@ -48,7 +48,7 @@ position = Vector2(4951, 384)
 position = Vector2(511, 548)
 
 [node name="Player2" parent="." instance=ExtResource("9_g0t2i")]
-position = Vector2(701, 548)
+position = Vector2(672, 563)
 
 [node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("10_wla32")]
 player1 = NodePath("../Player1")
@@ -62,7 +62,16 @@ script = ExtResource("11_y01f1")
 position = Vector2(5905, 306)
 shape = SubResource("RectangleShape2D_1fley")
 
-[node name="Sticky" parent="." instance=ExtResource("12_slt5y")]
-position = Vector2(1059, 532)
+[node name="RigidBody2D" parent="." instance=ExtResource("12_vrxin")]
+position = Vector2(1024, 530)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("12_vrxin")]
+position = Vector2(231, 535)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("12_vrxin")]
+position = Vector2(344, 539)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("12_vrxin")]
+position = Vector2(1330, 521)
 
 [connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]

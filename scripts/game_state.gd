@@ -24,14 +24,14 @@ func reset_positions():
 		player.reset_size()
 	reset = false
 
-func add_player_movements(player, up, down, left, right):
+func add_player_movements(player_num, up, down, left, right):
 	var directions = {}
 	directions[-1] = up
 	directions[1] = down
 	directions[-3] = left
 	directions[3] = right
-	player_movements[player] = directions
+	player_movements[player_num] = directions
 	
-func get_player_directions(player):
-	return player_movements[player]
+func get_player_directions(player_num):
+	return player_movements[player_num]
 	

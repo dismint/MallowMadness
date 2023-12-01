@@ -153,7 +153,7 @@ func _on_animation_player_animation_finished(anim_name):
 		pound_lock = false
 	
 func _ready():
-	GameState.add_player_movements(self, up, down, left, right)
+	GameState.add_player_movements(player_number, up, down, left, right)
 
 func _physics_process(delta):
 	# Keep track of which animation we should be doing
