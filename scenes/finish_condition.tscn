@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ttgmurypxwyt"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_kr77b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
+size = Vector2(1791.52, 1628.42)
+
+[node name="FinishCondition" type="Node2D"]
+position = Vector2(41.8062, -79)
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(625.39, 332.883)
+scale = Vector2(0.139097, 0.139097)
+script = ExtResource("1_kr77b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(-4796.63, -1760.52)
+shape = SubResource("RectangleShape2D_01w18")
+
+[connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
