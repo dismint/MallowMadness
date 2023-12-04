@@ -3,7 +3,6 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(get_parent().get_node('FinishLine'))
 	get_parent().get_node('FinishLine').finish_game.connect(_on_finish_line_finish_game)
 	hide()
 
@@ -14,7 +13,5 @@ func _process(delta):
 	pass
 
 
-
 func _on_finish_line_finish_game():
-	print('I was also here broski')
 	show()

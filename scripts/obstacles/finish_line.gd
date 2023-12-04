@@ -15,11 +15,7 @@ func _process(_delta):
 
 
 func _on_body_entered(_body):
-		
 	if len(get_overlapping_bodies()) == 2:
 			
 		finish_game.emit()
-		print('I was here')
-			
-#		get_tree().change_scene_to_file("res://scenes/lvl_navi/level_menu.tscn")
 
