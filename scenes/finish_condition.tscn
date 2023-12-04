@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ttgmurypxwyt"]
+[gd_scene load_steps=5 format=3 uid="uid://ttgmurypxwyt"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_kr77b"]
+[ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/game_over.tscn" id="2_grwu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
 size = Vector2(1791.52, 1628.42)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfe4i"]
+font_size = 180
 
 [node name="FinishCondition" type="Node2D"]
 position = Vector2(41.8062, -79)
@@ -17,4 +21,32 @@ script = ExtResource("1_kr77b")
 position = Vector2(-4796.63, -1760.52)
 shape = SubResource("RectangleShape2D_01w18")
 
+[node name="GameOver" parent="." instance=ExtResource("2_grwu1")]
+
+[node name="clear2" type="Label" parent="GameOver"]
+offset_left = 365.806
+offset_top = -63.0
+offset_right = 907.806
+offset_bottom = 211.0
+text = "Clear!"
+label_settings = SubResource("LabelSettings_gfe4i")
+metadata/_edit_use_anchors_ = true
+
+[node name="menu2" type="Button" parent="GameOver"]
+offset_left = 802.806
+offset_top = 338.0
+offset_right = 1096.81
+offset_bottom = 467.0
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="retry2" type="Button" parent="GameOver"]
+offset_left = 204.806
+offset_top = 333.0
+offset_right = 498.806
+offset_bottom = 462.0
+text = "Retry Level"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
+[connection signal="finish_game" from="FinishLine" to="GameOver" method="_on_finish_line_finish_game"]
