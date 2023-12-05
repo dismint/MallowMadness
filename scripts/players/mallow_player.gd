@@ -6,6 +6,9 @@ const PLAYER_UTILS = preload("player_utils.gd")
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
+const PRESS_MIN = 5
+const PRESS_SCALE = 0.9
+const PRESS_SPEED = 300.0
 const BONUS_SCALE = 50
 const POUND_SCALE = 0.8
 const POUND_MIN = 2 # It looks like this number is min before we get weird bugs
@@ -16,6 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var doing_pound = false
 var can_pound = true
 var pound_lock = false
+var press_lock = false
 var scale_mag = 0
 
 # Current move_and_slide() has a carrying bug. Use these variables to hack it
@@ -127,7 +131,9 @@ func do_press_pound(dir, collider):
 	if not collider:
 		return
 	
-	
+	press_lock = true
+	var press_scale = 1 if dir == left else -1
+	velocity.x = press_scale * PRESS_SPEED
 	collider.change_size(true)
 
 func do_ground_pound(delta):
@@ -171,6 +177,14 @@ func _physics_process(delta):
 	if GameState.reset or scale.x < POUND_MIN or scale.y < POUND_MIN:
 		# print(player_number, "resetting")
 		GameState.reset_positions()
+		return
+	
+	if press_lock:
+		if abs(velocity.x) < PRESS_MIN:
+			press_lock = false
+			return
+		velocity.x *= PRESS_SCALE
+		move_and_slide()
 		return
 
 	# Input.is_action_pressed instead of Input.is_action_just_pressed allows margin of error
