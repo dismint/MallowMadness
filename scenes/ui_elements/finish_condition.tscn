@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ttgmurypxwyt"]
+[gd_scene load_steps=5 format=3 uid="uid://ttgmurypxwyt"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_gupiw"]
 [ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/ui_elements/game_over.tscn" id="2_oro87"]
+[ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="3_tsb54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
 size = Vector2(1791.52, 1628.42)
@@ -19,6 +20,8 @@ position = Vector2(-4796.63, -1760.52)
 shape = SubResource("RectangleShape2D_01w18")
 
 [node name="GameOver" parent="." instance=ExtResource("2_oro87")]
+
+[node name="PauseScreen" parent="." instance=ExtResource("3_tsb54")]
 
 [connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
 [connection signal="finish_game" from="FinishLine" to="GameOver" method="_on_finish_line_finish_game"]

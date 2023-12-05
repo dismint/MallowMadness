@@ -1,21 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://04swvwrkewb7"]
 
-[ext_resource type="Script" path="res://scripts/ui_elements/death_screen.gd" id="1_u43lq"]
+[ext_resource type="Script" path="res://scripts/ui_elements/pause_screen.gd" id="1_qyhn5"]
 [ext_resource type="Script" path="res://scripts/ui_elements/menu.gd" id="2_qyd12"]
 [ext_resource type="Script" path="res://scripts/ui_elements/retry.gd" id="3_r6wam"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7plj"]
 font_size = 180
 
-[node name="DeathScreen" type="CanvasLayer"]
-script = ExtResource("1_u43lq")
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_qyhn5")
 
 [node name="clear" type="Label" parent="."]
-offset_left = 183.0
-offset_top = 47.0
-offset_right = 1009.0
-offset_bottom = 321.0
-text = "You Died"
+offset_left = 245.0
+offset_top = 51.0
+offset_right = 924.0
+offset_bottom = 314.0
+text = "Paused"
 label_settings = SubResource("LabelSettings_n7plj")
 
 [node name="menu" type="Button" parent="."]
