@@ -207,6 +207,7 @@ func _physics_process(delta):
 		
 		# Handle y-movement
 		if is_on_floor():
+			velocity.y = 0
 			if UP_PRESS and not_stuck(Vector2(0, -1)) and not carrying:
 				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
 		else:
