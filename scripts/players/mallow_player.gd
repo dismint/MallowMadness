@@ -123,10 +123,11 @@ func change_size(vertical):
 		scale.x *= 1 / POUND_SCALE
 		scale_mag -= 1
 
-func do_press_pound(collider):
+func do_press_pound(dir, collider):
 	if not collider:
 		return
-		
+	
+	
 	collider.change_size(true)
 
 func do_ground_pound(delta):
@@ -182,11 +183,11 @@ func _physics_process(delta):
 		if LEFT_PRESS and not_stuck(Vector2(-1, 0)) and not carrying:
 			velocity.x = -1 * SPEED
 			animation = "walk"
-			do_press_pound(get_pressed_player(Vector2(-1, 0)))
+			do_press_pound(left, get_pressed_player(Vector2(-1, 0)))
 		elif RIGHT_PRESS and not_stuck(Vector2(1, 0)) and not carrying:
 			velocity.x = 1 * SPEED
 			animation = "walk"
-			do_press_pound(get_pressed_player(Vector2(1, 0)))
+			do_press_pound(right, get_pressed_player(Vector2(1, 0)))
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
@@ -217,6 +218,9 @@ func _physics_process(delta):
 		# Block instance where player can carry another player
 		set_carrying()
 
+	# Using this player's current velocities, move them
+	var old_velocity = Vector2(velocity.x, velocity.y)
+
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -224,10 +228,7 @@ func _physics_process(delta):
 			GameState.reset_positions()
 			return
 		elif collision.get_normal().y == 1:
-			velocity.y = 0
-		
-	# Using this player's current velocities, move them
-	var old_velocity = Vector2(velocity.x, velocity.y)	
+			old_velocity.y = 0 # If we hit ceiling, want to reset y
 
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
 	
