@@ -1,0 +1,35 @@
+[gd_scene load_steps=10 format=3 uid="uid://bag803lqbo7oi"]
+
+[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_7lpbs"]
+[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_b6lr2"]
+[ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="3_2smt7"]
+[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="5_61tbj"]
+[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="6_2y2tx"]
+[ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="7_88lmp"]
+[ext_resource type="PackedScene" uid="uid://2jos558aany6" path="res://scenes/terrain/Map_Training.tscn" id="11_c4xkr"]
+[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="12_0t8ci"]
+[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="13_8evaq"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_7lpbs")
+
+[node name="Map_Background" parent="." instance=ExtResource("2_b6lr2")]
+
+[node name="Hazard_Spikes" parent="." instance=ExtResource("7_88lmp")]
+script = null
+
+[node name="Map_Training" parent="." instance=ExtResource("11_c4xkr")]
+
+[node name="Map_Basket" parent="." instance=ExtResource("12_0t8ci")]
+
+[node name="Map_Basic" parent="." instance=ExtResource("13_8evaq")]
+
+[node name="Player1" parent="." instance=ExtResource("5_61tbj")]
+position = Vector2(-43, -40)
+
+[node name="Player2" parent="." instance=ExtResource("6_2y2tx")]
+position = Vector2(41, -38)
+
+[node name="camera_both" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("3_2smt7")]
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")

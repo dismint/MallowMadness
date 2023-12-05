@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://by2vpprp2lx2s"]
+
+[ext_resource type="Texture2D" uid="uid://b4k3imqoxeg8s" path="res://assets/background_tileset.png" id="1_psm20"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pge5p"]
+texture = ExtResource("1_psm20")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ijmlc"]
+sources/0 = SubResource("TileSetAtlasSource_pge5p")
+
+[node name="Map_Background" type="TileMap"]
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_ijmlc")
+format = 2
