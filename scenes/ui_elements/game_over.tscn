@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1ugwuhooy5aj"]
 
-[ext_resource type="Script" path="res://scenes/ui_elements/game_over.gd" id="1_6weah"]
-[ext_resource type="Script" path="res://scenes/ui_elements/menu.gd" id="2_rdhsi"]
-[ext_resource type="Script" path="res://scenes/ui_elements/retry.gd" id="3_248ly"]
+[ext_resource type="Script" path="res://scripts/ui_elements/game_over.gd" id="1_eu3my"]
+[ext_resource type="Script" path="res://scripts/ui_elements/menu.gd" id="2_1fajp"]
+[ext_resource type="Script" path="res://scripts/ui_elements/retry.gd" id="3_fcgeq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7plj"]
 font_size = 180
 
 [node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_6weah")
+script = ExtResource("1_eu3my")
 
 [node name="clear" type="Label" parent="."]
 offset_left = 324.0
@@ -24,7 +24,7 @@ offset_top = 417.0
 offset_right = 1055.0
 offset_bottom = 546.0
 text = "Main Menu"
-script = ExtResource("2_rdhsi")
+script = ExtResource("2_1fajp")
 
 [node name="retry" type="Button" parent="."]
 offset_left = 163.0
@@ -32,7 +32,7 @@ offset_top = 412.0
 offset_right = 457.0
 offset_bottom = 541.0
 text = "Retry Level"
-script = ExtResource("3_248ly")
+script = ExtResource("3_fcgeq")
 
 [connection signal="pressed" from="menu" to="menu" method="_on_pressed"]
 [connection signal="pressed" from="retry" to="retry" method="_on_pressed"]
