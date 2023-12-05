@@ -184,6 +184,7 @@ func _physics_process(delta):
 			press_lock = false
 			return
 		velocity.x *= PRESS_SCALE
+		velocity.y += gravity * delta # Add gravity for free-fall
 		move_and_slide()
 		return
 
