@@ -12,8 +12,12 @@ func _ready():
 func _process(_delta):
 	pass
 
+# Function to implement ui for when players clear level
 func _on_body_entered(_body):
 	if len(get_overlapping_bodies()) == 2:
-			
 		finish_game.emit()
+		
+
+# When player dies
+
 
