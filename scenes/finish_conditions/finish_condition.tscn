@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ttgmurypxwyt"]
 
-[ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_kr77b"]
-[ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/game_over.tscn" id="2_grwu1"]
+[ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_fkhni"]
+[ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/game_over.tscn" id="2_ybcem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
 size = Vector2(1791.52, 1628.42)
@@ -12,13 +12,13 @@ position = Vector2(41.8062, -79)
 [node name="FinishLine" type="Area2D" parent="."]
 position = Vector2(625.39, 332.883)
 scale = Vector2(0.139097, 0.139097)
-script = ExtResource("1_kr77b")
+script = ExtResource("1_fkhni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
 position = Vector2(-4796.63, -1760.52)
 shape = SubResource("RectangleShape2D_01w18")
 
-[node name="GameOver" parent="." instance=ExtResource("2_grwu1")]
+[node name="GameOver" parent="." instance=ExtResource("2_ybcem")]
 
 [connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
 [connection signal="finish_game" from="FinishLine" to="GameOver" method="_on_finish_line_finish_game"]

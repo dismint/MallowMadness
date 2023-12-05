@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddl8mgkgc0x7h"]
+[gd_scene load_steps=8 format=3 uid="uid://kjtkdvpsldcd"]
 
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="2_2x2t0"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="3_ari4h"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="4_f2j01"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="4_f2j01"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="4_gywjv"]
 [ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="5_h2e8e"]
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="6_83jyk"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="6_83jyk"]
+[ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/finish_conditions/finish_condition.tscn" id="7_3yjp7"]
 
 [node name="level_1" type="Node2D"]
 
@@ -25,3 +26,6 @@ position = Vector2(-102, -2)
 
 [node name="Map_Basic" parent="." instance=ExtResource("4_f2j01")]
 layer_0/tile_data = PackedInt32Array(131068, 524288, 9, 131069, 524288, 9, 131070, 524288, 9, 131071, 524288, 9, 65536, 524288, 9, 65537, 524288, 9, 65538, 524288, 9, 65539, 524288, 9, 65540, 524288, 9, 65541, 524288, 9, 65542, 524288, 9, 65543, 524288, 9, 65544, 524288, 9, 65545, 524288, 9, 65546, 524288, 9, 65547, 524288, 9, 65548, 524288, 9, 65549, 524288, 9, 65550, 524288, 9, 65551, 524288, 9, 65552, 524288, 9, 65553, 524288, 9, 65554, 524288, 9, 65555, 524288, 9, 65556, 524288, 9, 65557, 524288, 9, 65558, 524288, 9, 65559, 524288, 9, 65560, 524288, 9, 65561, 524288, 9, 65562, 524288, 9, 65563, 524288, 9, 65564, 524288, 9, 65565, 524288, 9, 65566, 524288, 9, 65567, 524288, 9, 65568, 524288, 9, 65569, 524288, 9, 65570, 524288, 9, 65571, 524288, 9, 65572, 524288, 9, 65573, 524288, 9, 65574, 524288, 9, 65575, 524288, 9, 131067, 458752, 9, 65531, 458752, 8, -5, 458752, 8, -65541, 458752, 8, -131077, 458752, 8, -196613, 458752, 8, -262149, 458752, 8, -327685, 458752, 8, -393221, 458752, 8, -458757, 458752, 8, -524293, 458752, 8, -589829, 458752, 8, -655365, 458752, 8, -720901, 458752, 8, -786437, 458752, 8, -851973, 458752, 8, -917509, 458752, 8, -983045, 458752, 8, -1048581, 458752, 8, -1114117, 458752, 8, -1179653, 458752, 8, -1245189, 458752, 8, -1310725, 458752, 8, -1376261, 458752, 8, -1441797, 458752, 8, -65525, 196608, 17, 12, 0, 17, 13, 65536, 17, 14, 65536, 17, 15, 65536, 17, 16, 131072, 17, -65519, 196608, 17)
+
+[node name="FinishCondition" parent="." instance=ExtResource("7_3yjp7")]
+position = Vector2(667, -145)
