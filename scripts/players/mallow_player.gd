@@ -56,16 +56,16 @@ func reset_size():
 
 # Given direction, returns true iff player can move in that direction while being stuck
 func not_stuck(direction) -> bool:
-	stuck_players = []
-	for tile in stuck_tiles:
-		for player in tile.get_stuck_players():
-			if not PLAYER_UTILS.player_equals(player, self):
-				stuck_players.append(player)
-	var direction_code:int = (direction[0])*3 + (direction[1])
-	for player in stuck_players:
-		var player_direction_key = GameState.get_player_directions(player)[direction_code]
-		if not Input.is_action_pressed(player_direction_key):
-			return false
+#	stuck_players = []
+#	for tile in stuck_tiles:
+#		for player in tile.get_stuck_players():
+#			if not PLAYER_UTILS.player_equals(player, self):
+#				stuck_players.append(player)
+#	var direction_code:int = (direction[0])*3 + (direction[1])
+#	for player in stuck_players:
+#		var player_direction_key = GameState.get_player_directions(player)[direction_code]
+#		if not Input.is_action_pressed(player_direction_key):
+#			return false
 	return true
 
 # Sets the player this player landed on as carrying
@@ -264,3 +264,7 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = true
 	elif RIGHT_PRESS:
 		$Sprite2D.flip_h = false
+	
+	for tile in stuck_tiles:
+		tile.position += velocity * delta
+#		tile.apply_central_force(velocity.normalized() * 20)

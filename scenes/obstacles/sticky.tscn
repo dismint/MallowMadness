@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6uo3xsunlr0a"]
+[gd_scene load_steps=6 format=3 uid="uid://b6uo3xsunlr0a"]
 
-[ext_resource type="Script" path="res://scripts/obstacles/sticky_terrain.gd" id="1_km653"]
+[ext_resource type="Script" path="res://scripts/sticky_terrain_draft.gd" id="1_gmjlj"]
+[ext_resource type="Texture2D" uid="uid://byoc3mvs31pag" path="res://assets/icon.svg" id="2_grkdn"]
 [ext_resource type="TileSet" uid="uid://bmffok185xqu7" path="res://assets/sticky.tres" id="2_tj3yu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxjc0"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2ej8"]
+
 [node name="Sticky" type="Area2D"]
-script = ExtResource("1_km653")
+script = ExtResource("1_gmjlj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
@@ -17,3 +20,15 @@ shape = SubResource("RectangleShape2D_wxjc0")
 tile_set = ExtResource("2_tj3yu")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 2.66454e-15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_b2ej8")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_grkdn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
