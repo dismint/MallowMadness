@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="7_n3vc3"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="10_fsvsp"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_gp66e"]
-[ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/finish_condition.tscn" id="11_auemx"]
+[ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="11_auemx"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="11_go7gi"]
 
 [node name="Tutorial" type="Node2D"]
@@ -51,4 +51,4 @@ position = Vector2(409, 546)
 position = Vector2(617, 545)
 
 [node name="FinishCondition" parent="." instance=ExtResource("11_auemx")]
-position = Vector2(1804, 380)
+position = Vector2(7716, 367)

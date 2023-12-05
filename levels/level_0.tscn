@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="7_qwhhu"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="8_4y54s"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="10_u8k31"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
+[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="12_4jwcu"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="12_yse55"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="13_c5clc"]
@@ -57,5 +57,5 @@ layer_0/tile_data = PackedInt32Array(-655372, 131072, 1, -589836, 131072, 1, -52
 [node name="Map_Basic" parent="." instance=ExtResource("12_4jwcu")]
 
 [node name="FinishCondition" parent="." instance=ExtResource("12_yse55")]
-position = Vector2(3280, 1632)
+position = Vector2(-790, 267)
 scale = Vector2(-0.719971, 0.584375)
