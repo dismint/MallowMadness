@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ttgmurypxwyt"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_fkhni"]
-[ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/game_over.tscn" id="2_ybcem"]
+[ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/finish_conditions/game_over.tscn" id="2_ybcem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
 size = Vector2(1791.52, 1628.42)

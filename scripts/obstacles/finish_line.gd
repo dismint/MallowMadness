@@ -12,8 +12,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-
 func _on_body_entered(_body):
 	if len(get_overlapping_bodies()) == 2:
 			
