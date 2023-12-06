@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://w6t08e5hjac"]
 
-[ext_resource type="Script" path="res://scripts/sticky_terrain_draft.gd" id="1_7smj6"]
+[ext_resource type="Script" path="res://scripts/obstacles/sticky_terrain.gd" id="1_dbegu"]
 [ext_resource type="TileSet" uid="uid://bmffok185xqu7" path="res://assets/sticky.tres" id="2_sb80k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gdab"]
 size = Vector2(40, 40)
 
-[node name="RigidBody2D" type="Area2D"]
-script = ExtResource("1_7smj6")
+[node name="Sticky Terrain" type="RigidBody2D"]
+script = ExtResource("1_dbegu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
@@ -18,5 +18,4 @@ tile_set = ExtResource("2_sb80k")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

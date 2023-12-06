@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dxt3uopchger2"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_6a26x"]
-[ext_resource type="PackedScene" uid="uid://b6uo3xsunlr0a" path="res://scenes/obstacles/sticky.tscn" id="2_dxlui"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_wq4ky"]
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="3_5l23k"]
 [ext_resource type="TileSet" uid="uid://b0yi5fu40wyae" path="res://assets/ceiling_40x40.tres" id="4_ioipa"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="9_g0t2i"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="10_wla32"]
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="11_y01f1"]
+[ext_resource type="PackedScene" uid="uid://w6t08e5hjac" path="res://scenes/obstacles/sticky_terrain.tscn" id="13_lbnb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
@@ -72,28 +72,10 @@ position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_wi277")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Sticky" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(791, 526)
+[node name="Sticky Terrain" parent="." instance=ExtResource("13_lbnb7")]
+position = Vector2(282, 548)
 
-[node name="Sticky2" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(930, 505)
-
-[node name="Sticky3" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(1060, 521)
-
-[node name="Sticky4" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(256, 540)
-
-[node name="Sticky5" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(163, 526)
-
-[node name="Sticky6" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(417, 419)
-
-[node name="Sticky7" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(1180, 469)
-
-[node name="Sticky8" parent="." instance=ExtResource("2_dxlui")]
-position = Vector2(655, 463)
+[node name="Sticky Terrain2" parent="." instance=ExtResource("13_lbnb7")]
+position = Vector2(275, 300)
 
 [connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]

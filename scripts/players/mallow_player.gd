@@ -89,8 +89,8 @@ func set_carrying():
 	carrier = collider
 	carrier.carrying = true
 
-# Given direction, returns player that is pressed on iff that player collided with a wall
-func get_pressed_player(direction):
+# Given direction, returns node that this player pressed on
+func get_pressed_node(direction):
 	# Check if player is moving into something
 	var collision = move_and_collide(direction)
 	if not collision:
@@ -100,21 +100,9 @@ func get_pressed_player(direction):
 	var collider = collision.get_collider()
 	if collider.name.contains("Hazard"):
 		GameState.reset_positions()
-		return
-	elif not collider.name.contains("Player"):
 		return null
 	
-	# Collided with player, so check if player collides with wall
-	var collision_2 = collider.move_and_collide(direction)
-	if not collision_2:
-		return null
-	
-	# Collided player collided with something
-	var collider_2 = collision_2.get_collider()
-	if not collider_2.name.contains("Map"): # TODO This naming is really not safe.
-		return null
-	
-	# We must be pressing player 2 into a wall
+	# We must be pressing a node
 	return collider
 
 func change_size(vertical):
@@ -127,12 +115,30 @@ func change_size(vertical):
 		scale.x *= 1 / POUND_SCALE
 		scale_mag -= 1
 
-func do_press_pound(dir, collider):
+func do_press(key, dir, collider):
 	if not collider:
 		return
 	
+	# We collided with a Sticky object so let's grab it
+#	if collider.name.contains("Sticky"):
+#		collider.set_stuck_to(self)
+#		return
+
+	if not collider.name.contains("Player"):
+		return
+
+	# Collided with player, so check if player collides with wall
+	var collision_2 = collider.move_and_collide(dir)
+	if not collision_2:
+		return
+	
+	# Collided player collided with something
+	var collider_2 = collision_2.get_collider()
+	if not collider_2.name.contains("Map"):
+		return
+	
 	press_lock = true
-	var press_scale = 1 if dir == left else -1
+	var press_scale = 1 if key == left else -1
 	velocity.x = press_scale * PRESS_SPEED
 	collider.change_size(true)
 
@@ -198,11 +204,11 @@ func _physics_process(delta):
 		if LEFT_PRESS and not_stuck(Vector2(-1, 0)) and not carrying:
 			velocity.x = -1 * SPEED
 			animation = "walk"
-			do_press_pound(left, get_pressed_player(Vector2(-1, 0)))
+			do_press(left, Vector2(-1, 0), get_pressed_node(Vector2(-1, 0)))
 		elif RIGHT_PRESS and not_stuck(Vector2(1, 0)) and not carrying:
 			velocity.x = 1 * SPEED
 			animation = "walk"
-			do_press_pound(right, get_pressed_player(Vector2(1, 0)))
+			do_press(right, Vector2(1, 0), get_pressed_node(Vector2(1, 0)))
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		

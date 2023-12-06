@@ -1,34 +1,34 @@
-extends Area2D
+extends RigidBody2D
 
-class_name StickyTerrain
+var stuck_to = null # Variable to store node that this Sticky Terrain will stick to
+var delta_position = null # Variable to store amount of following space between this and stuck_to
 
-var stuck_players = []
-var delta
+func set_stuck_to(body):
+	stuck_to = body
+	delta_position = position - body.get_position()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	set_contact_monitor(true)
+	set_max_contacts_reported(1)
 
 func _physics_process(_delta):
-	var bodies = get_overlapping_bodies()
-	if bodies.size() > stuck_players.size():
-		for body in bodies:
-			if body.name.contains("Player"):
-				if not body.is_sticking():
-					stuck_players.erase(body)
-				elif not (body in stuck_players):
-					if stuck_players.size() == 0:
-						delta = body.get_position() - position
-					stuck_players.append(body)
-					body.add_stuck_tile(self)
-	if stuck_players:
-		var first_player = stuck_players[0]
-		position = first_player.get_position() - delta
-			
-func get_stuck_players():
-	return stuck_players
+	if not stuck_to:
+		return
+
+	position = stuck_to.get_position() - delta_position
+
+func _on_body_entered(body):
+	print(body.name)
+	
+	if (body.name.contains("Sticky")):
+		if body.stuck_to:
+			set_stuck_to(body)
+			print("I collided with a sticky terrain.")
+		return
+	
+	if (body.name.contains("Player")):
+		print("I collided with a player.")
+		set_stuck_to(body)
+		return
+		
