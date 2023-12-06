@@ -15,17 +15,20 @@ const PATTERN = [
 
 var pattern_idx = 0
 var stuck_with = null # Variable to store nodes that this Sticky Terrain will stick to
-var delta_position = null
 
-func set_stick_position(pos):
-	position = pos + delta_position
+func set_stick_velocity(vel):
+	velocity = vel
 	if stuck_with:
-		stuck_with.set_stick_position(position)
+		stuck_with.set_stick_velocity(Vector2(velocity.x, velocity.y))
 
 func _ready():
 	pass
 
-func _physics_process(_delta):	
+func _physics_process(_delta):
+	var old_velocity = Vector2(velocity.x, velocity.y)
+	move_and_slide()
+	velocity = old_velocity
+	
 	# Don't want to detect collisions if already stuck
 	if stuck_with:
 		return
@@ -42,4 +45,3 @@ func _physics_process(_delta):
 	# Only want to stick with terrains that have not been stuck yet
 	if not collider.stuck_with:
 		stuck_with = collider
-		collider.delta_position = position - collider.get_position()

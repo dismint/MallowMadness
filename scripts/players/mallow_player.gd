@@ -112,7 +112,6 @@ func do_press(key, dir, collider):
 	if collider.name.contains("Sticky"):
 		if not collider.stuck_with:
 			stuck_with.append(collider)
-			collider.delta_position = 1.1 * (collider.get_position() - position)
 		return
 
 	if not collider.name.contains("Player"):
@@ -247,7 +246,20 @@ func _physics_process(delta):
 
 	# Update sticky nodes to tag along
 	for sticky in stuck_with:
-		sticky.set_stick_position(position)
+		# Sticky should slow down if player moving in its direction
+		var x_adjust = 0
+		if LEFT_PRESS and sticky.position.x < position.x:
+			x_adjust = 1
+		elif RIGHT_PRESS and sticky.position.x > position.x:
+			x_adjust = 1
+		# Sticky should speed up if player moving opposite its direction
+		elif LEFT_PRESS and sticky.position.x > position.x:
+			x_adjust = 2
+		elif RIGHT_PRESS and sticky.position.x < position.x:
+			x_adjust = 2
+		# Sticky should fall fast to tag with player
+		var y_adjust = 0 if UP_PRESS else 4 * gravity * delta
+		sticky.set_stick_velocity(Vector2(x_adjust * velocity.x, y_adjust + velocity.y))
 	
 	# Handle animations
 	if pound_lock:
