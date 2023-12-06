@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxt3uopchger2"]
+[gd_scene load_steps=14 format=3 uid="uid://dxt3uopchger2"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_6a26x"]
 [ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="2_wq4ky"]
@@ -15,9 +15,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fley"]
 size = Vector2(20, 610)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi277"]
-size = Vector2(38, 38)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_6a26x")
@@ -65,17 +62,16 @@ script = ExtResource("11_y01f1")
 position = Vector2(5905, 306)
 shape = SubResource("RectangleShape2D_1fley")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Finish Line"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish Line/RigidBody2D"]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_wi277")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
 [node name="Sticky Terrain" parent="." instance=ExtResource("13_lbnb7")]
 position = Vector2(282, 548)
 
 [node name="Sticky Terrain2" parent="." instance=ExtResource("13_lbnb7")]
-position = Vector2(275, 300)
+position = Vector2(115, 515)
+
+[node name="Sticky Terrain3" parent="." instance=ExtResource("13_lbnb7")]
+position = Vector2(381, 489)
+
+[node name="Sticky Terrain4" parent="." instance=ExtResource("13_lbnb7")]
+position = Vector2(199, 430)
 
 [connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]

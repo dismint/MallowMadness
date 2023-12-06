@@ -1,38 +1,45 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-var stuck_to = null # Variable to store node that this Sticky Terrain will stick to
-var delta_position = null # Variable to store amount of following space between this and stuck_to
+const PATTERN = [
+	Vector2(0, 1),
+	Vector2(-1, 0),
+	Vector2(0, -1),
+	Vector2(0, -1),
+	Vector2(1, 0),
+	Vector2(1, 0),
+	Vector2(0, 1),
+	Vector2(0, 1),
+	Vector2(-1, 0),
+	Vector2(0, -1)
+]
 
-func set_stuck_to(body):
-	if stuck_to:
-		return
-	stuck_to = body
-	delta_position = position - body.get_position()
+var pattern_idx = 0
+var stuck_with = null # Variable to store nodes that this Sticky Terrain will stick to
+var delta_position = null
 
-# Called when the node enters the scene tree for the first time.
+func set_stick_position(pos):
+	position = pos + delta_position
+	if stuck_with:
+		stuck_with.set_stick_position(position)
+
 func _ready():
-	set_contact_monitor(true)
-	set_max_contacts_reported(1)
+	pass
 
-func _physics_process(_delta):
-	if not stuck_to:
-		return
-
-	position = stuck_to.get_position() - delta_position
-
-func _on_body_entered(body):
-	print(body.name)
-	if stuck_to:
-		return
-	
-	if (body.name.contains("Sticky")):
-		if body.stuck_to:
-			set_stuck_to(body)
-			print("I collided with a sticky terrain.")
-		return
-	
-	if (body.name.contains("Player")):
-		print("I collided with a player.")
-		set_stuck_to(body)
+func _physics_process(_delta):	
+	# Don't want to detect collisions if already stuck
+	if stuck_with:
 		return
 		
+	var collision = move_and_collide(PATTERN[pattern_idx])
+	pattern_idx = (pattern_idx + 1) % len(PATTERN)
+	if not collision:
+		return
+
+	var collider = collision.get_collider()
+	if not collider.name.contains("Sticky"):
+		return
+	
+	# Only want to stick with terrains that have not been stuck yet
+	if not collider.stuck_with:
+		stuck_with = collider
+		collider.delta_position = position - collider.get_position()

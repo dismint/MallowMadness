@@ -26,6 +26,9 @@ var scale_mag = 0
 var carrying = false
 var carrier = null
 
+# Sticky
+var stuck_with = []
+
 # Define variables for specific player
 var down : String
 var up : String
@@ -107,7 +110,9 @@ func do_press(key, dir, collider):
 	
 	# We collided with a Sticky object so let's grab it
 	if collider.name.contains("Sticky"):
-		collider.set_stuck_to(self)
+		if not collider.stuck_with:
+			stuck_with.append(collider)
+			collider.delta_position = 1.1 * (collider.get_position() - position)
 		return
 
 	if not collider.name.contains("Player"):
@@ -239,6 +244,10 @@ func _physics_process(delta):
 			old_velocity.y = 0 # If we hit ceiling, want to reset y
 
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
+
+	# Update sticky nodes to tag along
+	for sticky in stuck_with:
+		sticky.set_stick_position(position)
 	
 	# Handle animations
 	if pound_lock:
