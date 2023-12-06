@@ -54,20 +54,6 @@ func reset_position():
 func reset_size():
 	PLAYER_UTILS.reset_size(self)
 
-# Given direction, returns true iff player can move in that direction while being stuck
-func not_stuck(direction) -> bool:
-#	stuck_players = []
-#	for tile in stuck_tiles:
-#		for player in tile.get_stuck_players():
-#			if not PLAYER_UTILS.player_equals(player, self):
-#				stuck_players.append(player)
-#	var direction_code:int = (direction[0])*3 + (direction[1])
-#	for player in stuck_players:
-#		var player_direction_key = GameState.get_player_directions(player)[direction_code]
-#		if not Input.is_action_pressed(player_direction_key):
-#			return false
-	return true
-
 # Sets the player this player landed on as carrying
 func set_carrying():
 	# Check if player is landing on something
@@ -120,9 +106,9 @@ func do_press(key, dir, collider):
 		return
 	
 	# We collided with a Sticky object so let's grab it
-#	if collider.name.contains("Sticky"):
-#		collider.set_stuck_to(self)
-#		return
+	if collider.name.contains("Sticky"):
+		collider.set_stuck_to(self)
+		return
 
 	if not collider.name.contains("Player"):
 		return
@@ -201,11 +187,11 @@ func _physics_process(delta):
 
 	# Handle x-movement
 	if not pound_lock:
-		if LEFT_PRESS and not_stuck(Vector2(-1, 0)) and not carrying:
+		if LEFT_PRESS and not carrying:
 			velocity.x = -1 * SPEED
 			animation = "walk"
 			do_press(left, Vector2(-1, 0), get_pressed_node(Vector2(-1, 0)))
-		elif RIGHT_PRESS and not_stuck(Vector2(1, 0)) and not carrying:
+		elif RIGHT_PRESS and not carrying:
 			velocity.x = 1 * SPEED
 			animation = "walk"
 			do_press(right, Vector2(1, 0), get_pressed_node(Vector2(1, 0)))
@@ -215,7 +201,7 @@ func _physics_process(delta):
 		# Handle y-movement
 		if is_on_floor():
 			velocity.y = 0
-			if UP_PRESS and not_stuck(Vector2(0, -1)) and not carrying:
+			if UP_PRESS and not carrying:
 				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
 		else:
 			# In air so slow down movement
@@ -227,7 +213,7 @@ func _physics_process(delta):
 			else:
 				frame = 0
 				
-			if DOWN_PRESS and not_stuck(Vector2(0, 1)) and can_pound:
+			if DOWN_PRESS and can_pound:
 				velocity.y = 0
 				doing_pound = true
 				can_pound = false

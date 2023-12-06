@@ -4,6 +4,8 @@ var stuck_to = null # Variable to store node that this Sticky Terrain will stick
 var delta_position = null # Variable to store amount of following space between this and stuck_to
 
 func set_stuck_to(body):
+	if stuck_to:
+		return
 	stuck_to = body
 	delta_position = position - body.get_position()
 
@@ -20,6 +22,8 @@ func _physics_process(_delta):
 
 func _on_body_entered(body):
 	print(body.name)
+	if stuck_to:
+		return
 	
 	if (body.name.contains("Sticky")):
 		if body.stuck_to:
