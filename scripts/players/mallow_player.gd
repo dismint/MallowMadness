@@ -110,8 +110,7 @@ func do_press(key, dir, collider):
 	
 	# We collided with a Sticky object so let's grab it
 	if collider.name.contains("Sticky"):
-		if not collider.stuck_with:
-			stuck_with.append(collider)
+		stuck_with.append(collider)
 		return
 
 	if not collider.name.contains("Player"):
