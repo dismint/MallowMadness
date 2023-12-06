@@ -231,8 +231,8 @@ func _physics_process(delta):
 
 	# Using this player's current velocities, move them
 	var old_velocity = Vector2(velocity.x, velocity.y)
-
 	move_and_slide()
+	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name.contains("Hazard"):
@@ -244,21 +244,9 @@ func _physics_process(delta):
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
 
 	# Update sticky nodes to tag along
+	var y_adjust = 0 if UP_PRESS else 4 * gravity * delta
 	for sticky in stuck_with:
-		# Sticky should slow down if player moving in its direction
-		var x_adjust = 0
-		if LEFT_PRESS and sticky.position.x < position.x:
-			x_adjust = 1
-		elif RIGHT_PRESS and sticky.position.x > position.x:
-			x_adjust = 1
-		# Sticky should speed up if player moving opposite its direction
-		elif LEFT_PRESS and sticky.position.x > position.x:
-			x_adjust = 2
-		elif RIGHT_PRESS and sticky.position.x < position.x:
-			x_adjust = 2
-		# Sticky should fall fast to tag with player
-		var y_adjust = 0 if UP_PRESS else 4 * gravity * delta
-		sticky.set_stick_velocity(Vector2(x_adjust * velocity.x, y_adjust + velocity.y))
+		sticky.set_stick_velocity(Vector2(velocity.x, velocity.y + y_adjust), position)
 	
 	# Handle animations
 	if pound_lock:
