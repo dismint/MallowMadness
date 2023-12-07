@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5rryk8j04des"
+path="res://.godot/imported/mallowmadness - picnic_bgm.mp3-9f76ae8b2c2a604fc44b58dd88bb4bb5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/mallowmadness - picnic_bgm.mp3"
+dest_files=["res://.godot/imported/mallowmadness - picnic_bgm.mp3-9f76ae8b2c2a604fc44b58dd88bb4bb5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

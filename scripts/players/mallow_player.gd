@@ -146,6 +146,7 @@ func do_ground_pound(delta):
 	velocity.x = 0
 	var collider = collision.get_collider()
 	if not collider.name.contains("Player"):
+		$FloorPound.play()
 		return
 	
 	# Collided with player so squish them!

@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://hnr4ce5xrvbu"]
+[gd_scene load_steps=13 format=3 uid="uid://hnr4ce5xrvbu"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_dulec"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="1_hibg3"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="3_w2tf4"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="4_vrga3"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="6_hs1rp"]
-[ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="7_qwhhu"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="8_4y54s"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="10_u8k31"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
@@ -18,10 +17,10 @@
 script = ExtResource("1_dulec")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2422.0
-offset_top = -3326.0
-offset_right = 7742.0
-offset_bottom = 4770.0
+offset_left = -1223.0
+offset_top = -2896.0
+offset_right = 8941.0
+offset_bottom = 5200.0
 color = Color(0.792157, 0.921569, 0.811765, 1)
 
 [node name="Map_Background" parent="." instance=ExtResource("13_c5clc")]

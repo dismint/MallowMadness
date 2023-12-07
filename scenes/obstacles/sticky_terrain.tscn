@@ -1,19 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://hr6o3qw7txuo"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/sticky_terrain.gd" id="1_dbegu"]
-[ext_resource type="Texture2D" uid="uid://bv033xgwnw1js" path="res://assets/graham.png" id="2_gatfp"]
+[ext_resource type="Texture2D" uid="uid://ch4rs3n312quo" path="res://assets/white.png" id="3_6e7eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gdab"]
 size = Vector2(40, 40)
 
 [node name="Sticky Terrain" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 7
 script = ExtResource("1_dbegu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5gdab")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("2_gatfp")
+texture = ExtResource("3_6e7eu")

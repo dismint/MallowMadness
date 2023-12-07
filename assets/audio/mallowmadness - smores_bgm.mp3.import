@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dam173bak6nbh"
+path="res://.godot/imported/mallowmadness - smores_bgm.mp3-98d6041c90861566c961c64239e2f5b3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/mallowmadness - smores_bgm.mp3"
+dest_files=["res://.godot/imported/mallowmadness - smores_bgm.mp3-98d6041c90861566c961c64239e2f5b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

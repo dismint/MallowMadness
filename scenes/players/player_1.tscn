@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://k0j8hxol2gik"]
+[gd_scene load_steps=16 format=3 uid="uid://k0j8hxol2gik"]
 
 [ext_resource type="Script" path="res://scripts/players/player_1.gd" id="1_wnme2"]
 [ext_resource type="Texture2D" uid="uid://dg2f78dpwkrq6" path="res://assets/blue_spritesheet.png" id="2_wj5qk"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://nql0cv3ah80" path="res://assets/audio/mallowmadness - ground_pound_sfx.mp3" id="4_smbn5"]
 [ext_resource type="AudioStream" uid="uid://cap5dk7lkya5j" path="res://assets/audio/mallow madness - collide_sfx.mp3" id="5_o0ugy"]
 [ext_resource type="AudioStream" uid="uid://blt27tvw2ofra" path="res://assets/audio/dead.mp3" id="6_ahbit"]
+[ext_resource type="AudioStream" uid="uid://ccj7632c0w5yt" path="res://assets/audio/mallowmadness - floor_pound.mp3" id="7_oi5eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
 size = Vector2(12, 10)
@@ -148,7 +149,7 @@ volume_db = -12.0
 
 [node name="Pound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_smbn5")
-volume_db = -12.0
+volume_db = -7.0
 
 [node name="Collide" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_o0ugy")
@@ -156,5 +157,8 @@ volume_db = -10.0
 
 [node name="Dead" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ahbit")
+
+[node name="FloorPound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oi5eh")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
