@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqhe2v55873hw"]
+
+[ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="1_djql1"]
+[ext_resource type="Script" path="res://scripts/obstacles/vertical_slider_button/horizontal_slider.gd" id="2_xayri"]
+
+[node name="HorizontalSlider" type="TileMap"]
+scale = Vector2(5, 5)
+tile_set = ExtResource("1_djql1")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 17, 1, 65536, 17)
+script = ExtResource("2_xayri")

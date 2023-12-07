@@ -12,6 +12,8 @@ const PATTERN = [
 	Vector2(-1, 0),
 	Vector2(0, -1)
 ]
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var pattern_idx = 0
 var stuck_with = null # Variable to store nodes that this Sticky Terrain will stick to
@@ -39,7 +41,12 @@ func set_stick_velocity(vel, pos):
 func _ready():
 	pass
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	if is_on_floor():
+		velocity.y = 0
+	else:
+		velocity.y += gravity * delta
+	
 	var old_velocity = Vector2(velocity.x, velocity.y)
 	move_and_slide()
 	velocity = old_velocity

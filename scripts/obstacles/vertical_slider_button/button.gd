@@ -12,7 +12,7 @@ func _process(_delta):
 func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		if body.name.contains("Player"):
+		if body.name.contains("Player") or body.name.contains("Sticky"):
 			activated = true
 			break
 		activated = false

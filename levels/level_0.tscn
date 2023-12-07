@@ -1,13 +1,4 @@
 [gd_scene load_steps=14 format=3 uid="uid://hnr4ce5xrvbu"]
-
-[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_dulec"]
-[ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="1_hibg3"]
-[ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="3_w2tf4"]
-[ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="4_vrga3"]
-[ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="6_hs1rp"]
-[ext_resource type="PackedScene" uid="uid://d1168yqnrnkqc" path="res://scenes/obstacles/vertical_slider_button/vertical_slider.tscn" id="7_qwhhu"]
-[ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="8_4y54s"]
-[ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="10_u8k31"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="12_4jwcu"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="12_yse55"]
@@ -40,11 +31,6 @@ position = Vector2(-705, -902)
 [node name="Hazard_Spikes" parent="." instance=ExtResource("6_hs1rp")]
 layer_0/tile_data = PackedInt32Array(131094, 393216, 0, 131092, 393216, 0, 393236, 458752, 3, 393237, 458752, 3, 393238, 458752, 3, 393239, 458752, 3, 393240, 458752, 3, 393241, 458752, 3, 393242, 458752, 3, 393243, 458752, 3, 393244, 458752, 3, 393245, 458752, 3, 393246, 458752, 3, 393247, 458752, 3, 393248, 458752, 3, 393249, 458752, 3, 131116, 458752, 3, 196652, 458752, 3, 262188, 458752, 3, 327724, 458752, 3, 262228, 393216, 6, 262230, 393216, 6, 262232, 393216, 6, 262234, 393216, 6, 262236, 393216, 6, 655444, 393216, 0, 655446, 393216, 0, 655448, 393216, 0, 655450, 393216, 0, 655452, 393216, 0, 786546, 393216, 0, 786548, 393216, 0, 1572986, 393216, 0, 1572984, 393216, 0, 2228344, 393216, 0, 2228346, 393216, 0, 1704055, 393216, 2, 1769591, 393216, 2, 917622, 393216, 2, 983158, 393216, 2, 2752593, 393216, 4, 262198, 458752, 3, 262199, 458752, 3, 786429, 196608, 1, 786428, 196608, 1, 786427, 196608, 1, 786430, 196608, 1, 786431, 196608, 1)
 script = null
-
-[node name="VerticalSlider" parent="." node_paths=PackedStringArray("activ") instance=ExtResource("7_qwhhu")]
-position = Vector2(5280, 400)
-layer_0/tile_data = PackedInt32Array(1900513, 0, 0, 1966049, 0, 0, 2031585, 0, 0, 2097121, 0, 0, 2162657, 0, 0, 2228193, 0, 0)
-activ = NodePath("../Button")
 
 [node name="Button" parent="." instance=ExtResource("8_4y54s")]
 position = Vector2(3937, 1185)

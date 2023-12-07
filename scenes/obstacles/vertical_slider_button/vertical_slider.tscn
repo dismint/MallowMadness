@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://scripts/obstacles/vertical_slider_button/vertical_slider.gd" id="2_oa3ju"]
 
 [node name="VerticalSlider" type="TileMap"]
+scale = Vector2(5, 5)
 tile_set = ExtResource("1_exuid")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 2)
 script = ExtResource("2_oa3ju")
