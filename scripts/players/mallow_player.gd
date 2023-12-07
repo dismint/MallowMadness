@@ -130,9 +130,10 @@ func do_press(key, dir, collider):
 	var press_scale = 1 if key == left else -1
 	velocity.x = press_scale * PRESS_SPEED
 	collider.change_size(true)
+	$Collide.play()
 
 func do_ground_pound(delta):
-	# Player is ground-pounding
+	# Player is ground-pounng
 	velocity.y = 1 * gravity * delta
 	var collision = move_and_collide(Vector2(0, velocity.y))
 	if not collision:
@@ -149,10 +150,14 @@ func do_ground_pound(delta):
 	
 	# Collided with player so squish them!
 	collider.change_size(false)
+	$Pound.play()
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "pound":
 		pound_lock = false
+		
+func play_dead_sound():
+	$Dead.play()
 	
 func _ready():
 	GameState.add_player_movements(player_number, up, down, left, right)
@@ -171,6 +176,7 @@ func _physics_process(delta):
 	# print(player_number, scale)
 	if GameState.reset or scale.x < POUND_MIN or scale.y < POUND_MIN:
 		# print(player_number, "resetting")
+		play_dead_sound()
 		GameState.reset_positions()
 		return
 	
@@ -206,6 +212,7 @@ func _physics_process(delta):
 			velocity.y = 0
 			if UP_PRESS and not carrying:
 				velocity.y = JUMP_VELOCITY - BONUS_SCALE * scale_mag
+				$Jump.play()
 		else:
 			# In air so slow down movement
 			velocity.x /= 1.5

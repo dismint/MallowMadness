@@ -32,7 +32,7 @@ func set_stick_velocity(vel, pos):
 		x_adjust = 2
 	elif RIGHT_PRESS and LEFT_OF_PLAYER:
 		x_adjust = 2
-	velocity = Vector2(vel.x * x_adjust, vel.y)
+	velocity = Vector2(vel.x, vel.y)
 	if stuck_with:
 		stuck_with.set_stick_velocity(vel, pos)
 

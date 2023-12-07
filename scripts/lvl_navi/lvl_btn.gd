@@ -5,6 +5,7 @@ var original_size := size
 var grow_size := Vector2(1.1, 1.1)
 
 func _on_lvl_btn_mouse_entered() -> void:
+	$MouseHover.play()
 	grow_size_tween(grow_size, .1)
 	
 func _on_lvl_btn_mouse_exited() -> void:
@@ -21,6 +22,7 @@ func _on_button_pressed():
 
 
 func _on_lvl_button_pressed():
+	$MouseClick.play()
 	if lvl_path == null:
 		return
 	get_tree().change_scene_to_file(lvl_path)

@@ -15,6 +15,7 @@ func _process(_delta):
 # Function to implement ui for when players clear level
 func _on_body_entered(_body):
 	if len(get_overlapping_bodies()) == 2:
+		$WinSound.play()
 		finish_game.emit()
 		
 

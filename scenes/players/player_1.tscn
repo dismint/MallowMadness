@@ -1,7 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://k0j8hxol2gik"]
+[gd_scene load_steps=15 format=3 uid="uid://k0j8hxol2gik"]
 
 [ext_resource type="Script" path="res://scripts/players/player_1.gd" id="1_wnme2"]
 [ext_resource type="Texture2D" uid="uid://dg2f78dpwkrq6" path="res://assets/blue_spritesheet.png" id="2_wj5qk"]
+[ext_resource type="AudioStream" uid="uid://c3nfoxn56xarg" path="res://assets/audio/mallowmadness - jump_sfx.mp3" id="3_86ufb"]
+[ext_resource type="AudioStream" uid="uid://nql0cv3ah80" path="res://assets/audio/mallowmadness - ground_pound_sfx.mp3" id="4_smbn5"]
+[ext_resource type="AudioStream" uid="uid://cap5dk7lkya5j" path="res://assets/audio/mallow madness - collide_sfx.mp3" id="5_o0ugy"]
+[ext_resource type="AudioStream" uid="uid://blt27tvw2ofra" path="res://assets/audio/dead.mp3" id="6_ahbit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aatbm"]
 size = Vector2(12, 10)
@@ -136,5 +140,21 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_m4oyy")
 }
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("3_86ufb")
+volume_db = -12.0
+
+[node name="Pound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_smbn5")
+volume_db = -12.0
+
+[node name="Collide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o0ugy")
+volume_db = -10.0
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ahbit")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

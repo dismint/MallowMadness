@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ttgmurypxwyt"]
+[gd_scene load_steps=6 format=3 uid="uid://ttgmurypxwyt"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_gupiw"]
+[ext_resource type="AudioStream" uid="uid://diksrlpyduwiq" path="res://assets/audio/mallowmadness - win.mp3" id="2_oas0c"]
 [ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/ui_elements/game_over.tscn" id="2_oro87"]
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="3_tsb54"]
 
@@ -18,6 +19,11 @@ script = ExtResource("1_gupiw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
 position = Vector2(-4796.63, -1760.52)
 shape = SubResource("RectangleShape2D_01w18")
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="FinishLine"]
+position = Vector2(-4496.07, -2393.17)
+scale = Vector2(7.18923, 7.18923)
+stream = ExtResource("2_oas0c")
 
 [node name="GameOver" parent="." instance=ExtResource("2_oro87")]
 

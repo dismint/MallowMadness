@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://yc51v7x76e3h"]
+[gd_scene load_steps=5 format=3 uid="uid://yc51v7x76e3h"]
 
 [ext_resource type="Texture2D" uid="uid://dfxy3c2l3t0gx" path="res://assets/wahoo.png" id="1_opee5"]
 [ext_resource type="Script" path="res://scripts/lvl_navi/lvl_btn.gd" id="2_48yyl"]
+[ext_resource type="AudioStream" uid="uid://bf2vg5uw4fwhv" path="res://assets/audio/mallowmadness - on_button_hover.mp3" id="3_q47ey"]
+[ext_resource type="AudioStream" uid="uid://4o8ltv51crw4" path="res://assets/audio/mallowmadness - on_button_click1.mp3" id="4_ke31v"]
 
 [node name="Level Button" type="Button"]
 offset_right = 18.0
 offset_bottom = 18.0
 icon = ExtResource("1_opee5")
 script = ExtResource("2_48yyl")
+
+[node name="MouseHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q47ey")
+volume_db = -10.0
+
+[node name="MouseClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ke31v")
 
 [connection signal="mouse_entered" from="." to="." method="_on_lvl_btn_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_lvl_btn_mouse_exited"]
