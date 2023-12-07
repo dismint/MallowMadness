@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="9_j5rl3"]
 [ext_resource type="PackedScene" uid="uid://dqhe2v55873hw" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="10_1i2xq"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="11_r0kko"]
-[ext_resource type="PackedScene" uid="uid://w6t08e5hjac" path="res://scenes/obstacles/sticky_terrain.tscn" id="12_5aret"]
+[ext_resource type="PackedScene" uid="uid://hr6o3qw7txuo" path="res://scenes/obstacles/sticky_terrain.tscn" id="12_5aret"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="13_kovii"]
 
 [node name="Level" type="Node2D"]
@@ -255,7 +255,7 @@ position = Vector2(2880, 784)
 position = Vector2(1449, 1264)
 
 [node name="Button9" parent="Switches" instance=ExtResource("11_r0kko")]
-position = Vector2(161, 2304)
+position = Vector2(3473, 2304)
 
 [node name="HorizontalSlider" parent="Switches" node_paths=PackedStringArray("activ") instance=ExtResource("10_1i2xq")]
 position = Vector2(720, 480)
