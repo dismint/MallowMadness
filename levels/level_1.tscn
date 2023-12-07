@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_5dudd"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="2_2x2t0"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="3_ari4h"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="4_f2j01"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="4_f2j01"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="4_gywjv"]
 [ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="5_h2e8e"]
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="6_83jyk"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="6_83jyk"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="7_3yjp7"]
 [ext_resource type="AudioStream" uid="uid://c5rryk8j04des" path="res://assets/audio/mallowmadness - picnic_bgm.mp3" id="9_jsehg"]
 
