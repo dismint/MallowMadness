@@ -1,21 +1,21 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdxwpife0gj0b"]
 
-[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_yipfo"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_me5db"]
+[ext_resource type="Script" path="res://scripts/level_4.gd" id="1_i5g7a"]
+[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_me5db"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="3_w8f1n"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="4_pth11"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="5_mi6f4"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="6_xwd4a"]
+[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="5_mi6f4"]
+[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="6_xwd4a"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="7_dgtm7"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="8_724jt"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="9_j5rl3"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="10_1i2xq"]
+[ext_resource type="PackedScene" uid="uid://dqhe2v55873hw" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="10_1i2xq"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="11_r0kko"]
 [ext_resource type="PackedScene" uid="uid://hr6o3qw7txuo" path="res://scenes/obstacles/sticky_terrain.tscn" id="12_5aret"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="13_kovii"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_yipfo")
+script = ExtResource("1_i5g7a")
 metadata/_edit_horizontal_guides_ = [-2176.0]
 
 [node name="Map_Background" parent="." instance=ExtResource("2_me5db")]
