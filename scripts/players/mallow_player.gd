@@ -107,11 +107,6 @@ func change_size(vertical):
 func do_press(key, dir, collider):
 	if not collider:
 		return
-	
-	# We collided with a Sticky object so let's grab it
-	if collider.name.contains("Sticky"):
-		stuck_with.append(collider)
-		return
 
 	if not collider.name.contains("Player"):
 		return
@@ -252,9 +247,8 @@ func _physics_process(delta):
 	velocity = old_velocity # Prevents gravity buildup on move_and_slide()
 
 	# Update sticky nodes to tag along
-	var y_adjust = 0 if UP_PRESS else 4 * gravity * delta
 	for sticky in stuck_with:
-		sticky.set_stick_velocity(Vector2(velocity.x, velocity.y + y_adjust), position)
+		sticky.set_stick_position(position)
 	
 	# Handle animations
 	if pound_lock:

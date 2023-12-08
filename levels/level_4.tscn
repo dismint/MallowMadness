@@ -44,189 +44,109 @@ player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
 [node name="Stickies" type="Node2D" parent="."]
-
-[node name="Sticky Terrain" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1058, 1698)
-
-[node name="Sticky Terrain2" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1274, 1699)
-
-[node name="Sticky Terrain3" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1481, 1698)
-
-[node name="Sticky Terrain4" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(729, 1704)
-
-[node name="Sticky Terrain5" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(901, 1697)
-
-[node name="Sticky Terrain6" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1140, 1636)
-
-[node name="Sticky Terrain7" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1356, 1637)
-
-[node name="Sticky Terrain8" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1563, 1636)
-
-[node name="Sticky Terrain9" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(811, 1642)
-
-[node name="Sticky Terrain10" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(983, 1635)
-
-[node name="Sticky Terrain11" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1981, 1692)
-
-[node name="Sticky Terrain12" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2197, 1693)
-
-[node name="Sticky Terrain13" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2404, 1692)
-
-[node name="Sticky Terrain14" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1652, 1698)
-
-[node name="Sticky Terrain15" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1824, 1691)
-
-[node name="Sticky Terrain16" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2073, 1627)
-
-[node name="Sticky Terrain17" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2289, 1628)
-
-[node name="Sticky Terrain18" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2496, 1627)
-
-[node name="Sticky Terrain19" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1744, 1633)
-
-[node name="Sticky Terrain20" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(1916, 1626)
-
-[node name="Sticky Terrain21" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2930, 1693)
-
-[node name="Sticky Terrain22" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(3146, 1694)
-
-[node name="Sticky Terrain23" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(3353, 1693)
-
-[node name="Sticky Terrain24" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2601, 1699)
-
-[node name="Sticky Terrain25" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2773, 1692)
-
-[node name="Sticky Terrain26" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2967, 1621)
-
-[node name="Sticky Terrain27" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(3183, 1622)
-
-[node name="Sticky Terrain28" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(3390, 1621)
-
-[node name="Sticky Terrain29" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2638, 1627)
-
-[node name="Sticky Terrain30" parent="Stickies" instance=ExtResource("12_5aret")]
-position = Vector2(2810, 1620)
-
-[node name="Stickies2" type="Node2D" parent="."]
 position = Vector2(-17, -1280)
 
-[node name="Sticky Terrain" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1058, 1698)
+[node name="Sticky Terrain" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(973, 1992)
 
-[node name="Sticky Terrain2" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1274, 1699)
+[node name="Sticky Terrain2" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3065, 2044)
 
-[node name="Sticky Terrain3" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1481, 1698)
+[node name="Sticky Terrain3" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(921, 2041)
 
-[node name="Sticky Terrain4" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(729, 1704)
+[node name="Sticky Terrain14" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2693, 2470)
 
-[node name="Sticky Terrain5" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(901, 1697)
+[node name="Sticky Terrain15" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2641, 2519)
 
-[node name="Sticky Terrain6" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1140, 1636)
+[node name="Sticky Terrain4" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1216, 2041)
 
-[node name="Sticky Terrain7" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1356, 1637)
+[node name="Sticky Terrain5" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1489, 2040)
 
-[node name="Sticky Terrain8" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1563, 1636)
+[node name="Sticky Terrain6" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1784, 2040)
 
-[node name="Sticky Terrain9" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(811, 1642)
+[node name="Sticky Terrain7" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1935, 2041)
 
-[node name="Sticky Terrain10" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(983, 1635)
+[node name="Sticky Terrain8" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2231, 2039)
 
-[node name="Sticky Terrain11" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1981, 1692)
+[node name="Sticky Terrain22" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(577, 3511)
 
-[node name="Sticky Terrain12" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2197, 1693)
+[node name="Sticky Terrain23" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2669, 3563)
 
-[node name="Sticky Terrain13" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2404, 1692)
+[node name="Sticky Terrain24" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(525, 3560)
 
-[node name="Sticky Terrain14" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1652, 1698)
+[node name="Sticky Terrain25" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2576, 3508)
 
-[node name="Sticky Terrain15" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1824, 1691)
+[node name="Sticky Terrain26" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2524, 3557)
 
-[node name="Sticky Terrain16" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2073, 1627)
+[node name="Sticky Terrain32" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3505, 3560)
 
-[node name="Sticky Terrain17" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2289, 1628)
+[node name="Sticky Terrain33" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3412, 3505)
 
-[node name="Sticky Terrain18" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2496, 1627)
+[node name="Sticky Terrain34" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3360, 3554)
 
-[node name="Sticky Terrain19" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1744, 1633)
+[node name="Sticky Terrain27" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(820, 3560)
 
-[node name="Sticky Terrain20" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(1916, 1626)
+[node name="Sticky Terrain28" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1093, 3559)
 
-[node name="Sticky Terrain21" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2930, 1693)
+[node name="Sticky Terrain29" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1388, 3559)
 
-[node name="Sticky Terrain22" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(3146, 1694)
+[node name="Sticky Terrain30" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1539, 3560)
 
-[node name="Sticky Terrain23" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(3353, 1693)
+[node name="Sticky Terrain31" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1835, 3558)
 
-[node name="Sticky Terrain24" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2601, 1699)
+[node name="Sticky Terrain9" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2548, 2041)
 
-[node name="Sticky Terrain25" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2773, 1692)
+[node name="Sticky Terrain10" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2843, 1987)
 
-[node name="Sticky Terrain26" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2967, 1621)
+[node name="Sticky Terrain16" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(429, 2519)
 
-[node name="Sticky Terrain27" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(3183, 1622)
+[node name="Sticky Terrain17" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(724, 2519)
 
-[node name="Sticky Terrain28" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(3390, 1621)
+[node name="Sticky Terrain18" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(875, 2520)
 
-[node name="Sticky Terrain29" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2638, 1627)
+[node name="Sticky Terrain19" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1171, 2518)
 
-[node name="Sticky Terrain30" parent="Stickies2" instance=ExtResource("12_5aret")]
-position = Vector2(2810, 1620)
+[node name="Sticky Terrain20" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(1488, 2520)
+
+[node name="Sticky Terrain21" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2854, 2521)
+
+[node name="Sticky Terrain13" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3366, 2041)
+
+[node name="Sticky Terrain11" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(2909, 2041)
+
+[node name="Sticky Terrain12" parent="Stickies" instance=ExtResource("12_5aret")]
+position = Vector2(3289, 2038)
 
 [node name="Switches" type="Node2D" parent="."]
 
@@ -252,6 +172,15 @@ position = Vector2(3325, 784)
 position = Vector2(2880, 784)
 
 [node name="Button8" parent="Switches" instance=ExtResource("11_r0kko")]
+position = Vector2(1449, 1264)
+
+[node name="Sticky Terrain35" parent="Switches" instance=ExtResource("12_5aret")]
+position = Vector2(2762, 2278)
+
+[node name="Sticky Terrain36" parent="Switches" instance=ExtResource("12_5aret")]
+position = Vector2(3079, 2280)
+
+[node name="Button10" parent="Switches" instance=ExtResource("11_r0kko")]
 position = Vector2(1449, 1264)
 
 [node name="Button9" parent="Switches" instance=ExtResource("11_r0kko")]
