@@ -51,7 +51,6 @@ script = ExtResource("9_iaunq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishCondition/FinishLine"]
 position = Vector2(8709.48, -3387.42)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m1atr")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="FinishCondition/FinishLine"]
