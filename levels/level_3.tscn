@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drl4rb3g1m321"]
+[gd_scene load_steps=13 format=3 uid="uid://drl4rb3g1m321"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_7dtc4"]
 [ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_s813x"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="8_4q1b2"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="9_fj0qe"]
 [ext_resource type="AudioStream" uid="uid://dam173bak6nbh" path="res://assets/audio/mallowmadness - smores_bgm.mp3" id="10_0f8s8"]
+[ext_resource type="Script" path="res://scripts/level_3_timer.gd" id="11_8sjrw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ryig"]
+font_size = 180
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_7dtc4")
@@ -75,5 +79,18 @@ position = Vector2(-92.9999, 333)
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 245.0
+offset_top = 51.0
+offset_right = 924.0
+offset_bottom = 314.0
+label_settings = SubResource("LabelSettings_2ryig")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("11_8sjrw")
+
 [node name="smores_bgm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_0f8s8")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
