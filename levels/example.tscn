@@ -22,8 +22,6 @@ script = null
 
 [node name="Map_Basic" parent="." instance=ExtResource("13_8evaq")]
 
-[node name="Hazard_Spikes2" parent="." instance=ExtResource("7_88lmp")]
-
 [node name="Player1" parent="." instance=ExtResource("5_61tbj")]
 position = Vector2(-43, -40)
 

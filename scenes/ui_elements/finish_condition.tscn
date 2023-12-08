@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="3_tsb54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
-size = Vector2(2243.04, 13292.9)
+resource_local_to_scene = true
+size = Vector2(3048.23, 1520.9)
 
 [node name="FinishCondition" type="Node2D"]
 position = Vector2(41.8062, -79)
@@ -17,7 +18,7 @@ scale = Vector2(0.139097, 0.139097)
 script = ExtResource("1_gupiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
-position = Vector2(-4796.63, -1760.52)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_01w18")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="FinishLine"]
