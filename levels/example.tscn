@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp6tehtktrj4w"]
+[gd_scene load_steps=9 format=3 uid="uid://cp6tehtktrj4w"]
 
-[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_7lpbs"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_b6lr2"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="3_2smt7"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="5_61tbj"]
@@ -10,8 +9,7 @@
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="12_0t8ci"]
 [ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="13_8evaq"]
 
-[node name="Level" type="Node2D"]
-script = ExtResource("1_7lpbs")
+[node name="Example" type="Node2D"]
 
 [node name="Map_Background" parent="." instance=ExtResource("2_b6lr2")]
 

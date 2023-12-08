@@ -21,4 +21,3 @@ func _on_body_entered(_body):
 
 # When player dies
 
-

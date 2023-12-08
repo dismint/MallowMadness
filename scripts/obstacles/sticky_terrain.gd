@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends Area2D
+
+@export var bgm : AudioStreamPlayer2D
 
 const PATTERN = [
-	Vector2(0, 1),
 	Vector2(-1, 0),
 	Vector2(0, -1),
 	Vector2(0, -1),
@@ -10,60 +11,37 @@ const PATTERN = [
 	Vector2(0, 1),
 	Vector2(0, 1),
 	Vector2(-1, 0),
-	Vector2(0, -1)
 ]
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var pattern_idx = 0
-var stuck_with = null # Variable to store nodes that this Sticky Terrain will stick to
+var stuck_with = null # Variable to store node that this Sticky Terrain will stick to
+var delta_position = 0 # Variable to store distance adjustment away from stuck_with
+var the_sticky_one = false # Variable used so sticky happens one-way, DAG
 
-func set_stick_velocity(vel, pos):
-	var LEFT_PRESS = (vel.x < 0)
-	var RIGHT_PRESS = (vel.x > 0)
-	var LEFT_OF_PLAYER = (position.x < pos.x)
-	var RIGHT_OF_PLAYER = (position.x > pos.x)
-	# Sticky should slow down if player moving in its direction
-	var x_adjust = 0
-	if LEFT_PRESS and LEFT_OF_PLAYER:
-		x_adjust = 1
-	elif RIGHT_PRESS and RIGHT_OF_PLAYER:
-		x_adjust = 1
-	# Sticky should speed up if player moving opposite its direction
-	elif LEFT_PRESS and RIGHT_OF_PLAYER:
-		x_adjust = 2
-	elif RIGHT_PRESS and LEFT_OF_PLAYER:
-		x_adjust = 2
-	velocity = Vector2(vel.x, vel.y)
+func set_stick_position(pos):
+	position = pos - delta_position
 	if stuck_with:
-		stuck_with.set_stick_velocity(vel, pos)
+		stuck_with.set_stick_position(position)
 
 func _ready():
 	pass
 
 func _physics_process(delta):
-	if is_on_floor():
-		velocity.y = 0
-	else:
-		velocity.y += gravity * delta
-	
-	var old_velocity = Vector2(velocity.x, velocity.y)
-	move_and_slide()
-	velocity = old_velocity
-	
-	# Don't want to detect collisions if already stuck
-	if stuck_with:
-		return
-		
-	var collision = move_and_collide(PATTERN[pattern_idx])
+	# Maybe we don't need this but it looks cool
+	position += PATTERN[pattern_idx]
 	pattern_idx = (pattern_idx + 1) % len(PATTERN)
-	if not collision:
-		return
 
-	var collider = collision.get_collider()
-	if not collider.name.contains("Sticky"):
-		return
-	
-	# Only want to stick with terrains that have not been stuck yet
-	if not collider.stuck_with:
-		stuck_with = collider
+func _on_area_entered(area):
+	# Sticky terrain can only stick to new sticky terrain!
+	if the_sticky_one and area.name.contains("Sticky") and not area.the_sticky_one:
+		stuck_with = area
+		area.delta_position = position - area.get_position()
+		bgm.volume_db += 0.3
+
+func _on_body_entered(body):
+	# Sticky terrain cannot unstick!
+	if not (the_sticky_one or stuck_with) and body.name.contains("Player"):
+		body.stuck_with.append(self)
+		delta_position = body.get_position() - position
+		the_sticky_one = true
+		bgm.volume_db += 0.3

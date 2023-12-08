@@ -143,7 +143,6 @@ libraries = {
 }
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("3_86ufb")
 volume_db = -12.0
 
