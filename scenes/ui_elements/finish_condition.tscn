@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="3_tsb54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
-size = Vector2(1791.52, 1628.42)
+size = Vector2(2243.04, 13292.9)
 
 [node name="FinishCondition" type="Node2D"]
 position = Vector2(41.8062, -79)
