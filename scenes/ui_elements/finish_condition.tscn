@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ttgmurypxwyt"]
+[gd_scene load_steps=7 format=3 uid="uid://ttgmurypxwyt"]
 
 [ext_resource type="Script" path="res://scripts/obstacles/finish_line.gd" id="1_gupiw"]
 [ext_resource type="AudioStream" uid="uid://diksrlpyduwiq" path="res://assets/audio/mallowmadness - win.mp3" id="2_oas0c"]
 [ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/ui_elements/game_over.tscn" id="2_oro87"]
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="3_tsb54"]
+[ext_resource type="PackedScene" uid="uid://dv6fjl2m3fgo8" path="res://scenes/ui_elements/death_scrn.tscn" id="5_y0ei0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
 resource_local_to_scene = true
@@ -28,6 +29,8 @@ stream = ExtResource("2_oas0c")
 [node name="GameOver" parent="." instance=ExtResource("2_oro87")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tsb54")]
+
+[node name="Death" parent="." instance=ExtResource("5_y0ei0")]
 
 [connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
 [connection signal="finish_game" from="FinishLine" to="GameOver" method="_on_finish_line_finish_game"]

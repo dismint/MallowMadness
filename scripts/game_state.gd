@@ -6,6 +6,8 @@ var reset = false
 var num_players = 2
 var player_movements = {}
 
+signal player_death
+
 # calls at the very beginning when the game starts
 # to get each player we would probably have to create a screen to add players
 #func _ready():
@@ -22,6 +24,7 @@ func reset_positions():
 #		player.reset_position()
 #		player.reset_size()
 #	reset = false
+	player_death.emit()
 	get_tree().reload_current_scene()
 
 func add_player_movements(player_num, up, down, left, right):
