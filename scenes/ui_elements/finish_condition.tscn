@@ -18,7 +18,6 @@ scale = Vector2(0.139097, 0.139097)
 script = ExtResource("1_gupiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_01w18")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="FinishLine"]
