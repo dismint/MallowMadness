@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://drl4rb3g1m321"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_7dtc4"]
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_s813x"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_s813x"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="3_sdaga"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="4_6vwan"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="5_ve4wb"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="6_wdvrf"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="5_ve4wb"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="6_wdvrf"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="7_q5tca"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="8_4q1b2"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="9_fj0qe"]
@@ -91,6 +91,9 @@ horizontal_alignment = 1
 script = ExtResource("11_8sjrw")
 
 [node name="smores_bgm" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2116, 1058)
 stream = ExtResource("10_0f8s8")
+autoplay = true
+max_distance = 5000.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

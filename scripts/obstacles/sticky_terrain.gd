@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var bgm : AudioStreamPlayer2D
+
 const PATTERN = [
 	Vector2(-1, 0),
 	Vector2(0, -1),
@@ -34,6 +36,7 @@ func _on_area_entered(area):
 	if the_sticky_one and area.name.contains("Sticky") and not area.the_sticky_one:
 		stuck_with = area
 		area.delta_position = position - area.get_position()
+		bgm.volume_db += 0.3
 
 func _on_body_entered(body):
 	# Sticky terrain cannot unstick!
@@ -41,3 +44,4 @@ func _on_body_entered(body):
 		body.stuck_with.append(self)
 		delta_position = body.get_position() - position
 		the_sticky_one = true
+		bgm.volume_db += 0.3

@@ -1,18 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdxwpife0gj0b"]
+[gd_scene load_steps=17 format=3 uid="uid://bdxwpife0gj0b"]
 
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_i5g7a"]
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_me5db"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_me5db"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="3_w8f1n"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="4_pth11"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="5_mi6f4"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="6_xwd4a"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="5_mi6f4"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="6_xwd4a"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="7_dgtm7"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="8_724jt"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="9_j5rl3"]
-[ext_resource type="PackedScene" uid="uid://dqhe2v55873hw" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="10_1i2xq"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="10_1i2xq"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="11_r0kko"]
 [ext_resource type="PackedScene" uid="uid://hr6o3qw7txuo" path="res://scenes/obstacles/sticky_terrain.tscn" id="12_5aret"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="13_kovii"]
+[ext_resource type="AudioStream" uid="uid://ypj55iehwqgl" path="res://assets/audio/oven_bgm_start.mp3" id="14_oboim"]
+[ext_resource type="AudioStream" uid="uid://47htssm72o64" path="res://assets/audio/mallowmadness - oven_bgm.mp3" id="15_ilb7w"]
+[ext_resource type="AudioStream" uid="uid://cxdos1pdkicsy" path="res://assets/audio/mallowmadness - oven_bgm_end.mp3" id="16_x3360"]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_i5g7a")
@@ -47,107 +50,141 @@ player2 = NodePath("../Player2")
 [node name="Stickies" type="Node2D" parent="."]
 position = Vector2(-17, -1280)
 
-[node name="Sticky Terrain" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(973, 1992)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain2" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain2" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3065, 2044)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain3" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain3" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(921, 2041)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain14" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain14" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2693, 2470)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain15" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain15" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2641, 2519)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain4" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain4" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1215, 2043)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain5" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain5" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1489, 2040)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain6" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain6" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1784, 2040)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain7" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain7" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1935, 2041)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain8" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain8" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2231, 2039)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain22" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain22" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(577, 3511)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain23" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain23" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2669, 3563)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain24" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain24" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(525, 3560)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain25" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain25" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2576, 3508)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain26" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain26" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2524, 3557)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain32" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain32" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3505, 3560)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain33" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain33" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3412, 3505)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain34" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain34" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3360, 3559)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain27" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain27" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(820, 3560)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain28" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain28" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1093, 3559)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain29" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain29" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1388, 3559)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain30" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain30" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1539, 3560)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain31" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain31" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1835, 3558)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain9" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain9" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2548, 2041)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain10" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain10" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2843, 1987)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain16" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain16" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(429, 2519)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain17" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain17" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(724, 2519)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain18" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain18" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(875, 2520)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain19" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain19" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1171, 2518)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain20" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain20" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(1488, 2520)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain21" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain21" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2854, 2521)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain13" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain13" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3366, 2041)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain11" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain11" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(2909, 2041)
+bgm = NodePath("../../oven_bgm")
 
-[node name="Sticky Terrain12" parent="Stickies" instance=ExtResource("12_5aret")]
+[node name="Sticky Terrain12" parent="Stickies" node_paths=PackedStringArray("bgm") instance=ExtResource("12_5aret")]
 position = Vector2(3289, 2038)
+bgm = NodePath("../../oven_bgm")
 
 [node name="Switches" type="Node2D" parent="."]
 
@@ -248,4 +285,24 @@ position = Vector2(3600, 1280)
 activ = NodePath("../Button9")
 
 [node name="FinishCondition" parent="." instance=ExtResource("13_kovii")]
-position = Vector2(2106, 2117)
+position = Vector2(1173, 330)
+
+[node name="oven_bgm_start" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2042, 1312)
+stream = ExtResource("14_oboim")
+volume_db = -10.0
+autoplay = true
+max_distance = 5000.0
+
+[node name="oven_bgm" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2026, 1316)
+stream = ExtResource("15_ilb7w")
+volume_db = -15.0
+max_distance = 5000.0
+
+[node name="oven_bgm_end" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2042, 1320)
+stream = ExtResource("16_x3360")
+max_distance = 5000.0
+
+[connection signal="finished" from="oven_bgm_start" to="." method="_on_oven_bgm_start_finished"]
