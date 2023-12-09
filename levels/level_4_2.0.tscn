@@ -198,14 +198,14 @@ activ = NodePath("../Button")
 position = Vector2(2640, 1184)
 
 [node name="Grab Sticky" parent="." instance=ExtResource("17_0kleb")]
-position = Vector2(3122, 1520)
+position = Vector2(3121, 1527)
 script = ExtResource("16_svn8y")
 
 [node name="Player1" parent="." instance=ExtResource("7_kch6u")]
-position = Vector2(316, 438)
+position = Vector2(327, 444)
 
 [node name="Player2" parent="." instance=ExtResource("8_iutfq")]
-position = Vector2(393, 441)
+position = Vector2(261, 446)
 
 [node name="Exit Stickies" type="Node2D" parent="."]
 

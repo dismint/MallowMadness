@@ -2,16 +2,25 @@ extends Area2D
 
 var following
 var delta_position
+var collision_disable
 
 func _on_area_entered(area):
 	if area.name.contains("Sticky") and area.following:
 		following = area.following
 		delta_position = following.position - position
-		get_node("RigidBody2D/CollisionShape2D").disabled = true
+		collision_disable = true
 		
 func _process(_delta):
 	if following:
 		follow_player()
+	if collision_disable:
+		disable_collision()
+		collision_disable = false
+		
+func disable_collision():
+	get_node("CollisionShape2D").disabled = true
+	get_node("RigidBody2D/CollisionShape2D").disabled = true
+	
 	
 func follow_player():
 	position = following.position - delta_position
