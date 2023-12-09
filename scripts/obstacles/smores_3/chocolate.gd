@@ -13,9 +13,11 @@ func _process(delta):
 	
 	if alive:
 		self.show()
+		self.set_layer_enabled(0, true)
 #		get_node("CollisionShape2D").disabled = false
 #		get_node("RigidBody2D/CollisionShape2D").disabled = false
 	else:
 		self.hide()
+		self.set_layer_enabled(0, false)
 #		get_node("CollisionShape2D").disabled = true
 #		get_node("RigidBody2D/CollisionShape2D").disabled = true
