@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cp6tehtktrj4w"]
 
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_b6lr2"]
+[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_b6lr2"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="3_2smt7"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="5_61tbj"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="6_2y2tx"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="7_88lmp"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="9_hgxv5"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="11_c4xkr"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="12_0t8ci"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="13_8evaq"]
+[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="12_0t8ci"]
+[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="13_8evaq"]
 
 [node name="Example2" type="Node2D"]
 
