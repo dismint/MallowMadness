@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkbbq32hj86g8"]
+
+[ext_resource type="Texture2D" uid="uid://dq5br73fnmby3" path="res://assets/text_mm.png" id="1_08vbh"]
+[ext_resource type="Texture2D" uid="uid://cp7incsrpybrw" path="res://assets/text_click.png" id="2_pjkqh"]
+
+[node name="opening_scene" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.780392, 0.894118, 1, 1)
+
+[node name="TextMm" type="Sprite2D" parent="."]
+position = Vector2(583, 189)
+scale = Vector2(5, 5)
+texture = ExtResource("1_08vbh")
+
+[node name="TextClick" type="Sprite2D" parent="."]
+position = Vector2(597, 345)
+scale = Vector2(5, 5)
+texture = ExtResource("2_pjkqh")

@@ -1,19 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb6lbkin41gkh"]
+[gd_scene load_steps=6 format=3 uid="uid://cb6lbkin41gkh"]
 
 [ext_resource type="Script" path="res://scripts/lvl_navi/level_menu.gd" id="1_p4ssl"]
 [ext_resource type="Texture2D" uid="uid://bvjdq0yutx6j8" path="res://assets/text_level.png" id="2_bd51l"]
 [ext_resource type="PackedScene" uid="uid://chukp8oa41b0w" path="res://scenes/lvl_navi/level_button_fancy.tscn" id="4_3lbfn"]
+[ext_resource type="Texture2D" uid="uid://g7gfibm32v0d" path="res://assets/text_levels.png" id="4_u5857"]
+[ext_resource type="Texture2D" uid="uid://b8ycc2eqkmbns" path="res://assets/text_tutorials.png" id="5_ajv4j"]
 
 [node name="Level Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_p4ssl")
-dir_path = "res://levels"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 2.0
+offset_top = 13.0
+offset_right = 1154.0
+offset_bottom = 661.0
 color = Color(0.780392, 0.894118, 1, 1)
 
 [node name="TextLevel" type="Sprite2D" parent="."]
@@ -51,3 +54,13 @@ spriteFrame = 6
 [node name="lvl4" parent="." instance=ExtResource("4_3lbfn")]
 position = Vector2(928, 540)
 spriteFrame = 7
+
+[node name="TextLevels" type="Sprite2D" parent="."]
+position = Vector2(846, 235)
+scale = Vector2(5, 5)
+texture = ExtResource("4_u5857")
+
+[node name="TextTutorials" type="Sprite2D" parent="."]
+position = Vector2(301, 232)
+scale = Vector2(5, 5)
+texture = ExtResource("5_ajv4j")
