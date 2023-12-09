@@ -87,6 +87,11 @@ sources/0 = SubResource("TileSetAtlasSource_3xoqb")
 [sub_resource type="GDScript" id="GDScript_oxu52"]
 script/source = "extends TileMap
 
+var rng = RandomNumberGenerator.new()
+var timer = rng.randf_range(1.5, 2)
+var directions = [Vector2(1, 0), Vector2(-1, 0)]
+var direction_ind : int
+var moving : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,8 +99,19 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _process(delta):
+	if timer < 0:
+		moving = not moving
+		if moving:
+			timer = rng.randf_range(1.5, 2)
+			direction_ind = int(rng.randf_range(0, 1) + 0.5)
+		else: 
+			timer = rng.randf_range(3, 5)
+	
+	if moving:
+		position += directions[direction_ind] * delta
+		
+	timer -= delta
 "
 
 [node name="Hazard_Spikes" type="TileMap"]

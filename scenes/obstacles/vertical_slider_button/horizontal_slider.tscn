@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqhe2v55873hw"]
+[gd_scene load_steps=3 format=3 uid="uid://biqstti2bg22p"]
 
 [ext_resource type="TileSet" uid="uid://bsx22gkgqd78q" path="res://assets/level_borders_40x40.tres" id="1_djql1"]
 [ext_resource type="Script" path="res://scripts/obstacles/vertical_slider_button/horizontal_slider.gd" id="2_xayri"]

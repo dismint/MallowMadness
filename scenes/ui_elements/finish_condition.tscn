@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dv6fjl2m3fgo8" path="res://scenes/ui_elements/death_scrn.tscn" id="5_y0ei0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01w18"]
-resource_local_to_scene = true
-size = Vector2(3048.23, 1520.9)
+size = Vector2(1791.52, 1628.42)
 
 [node name="FinishCondition" type="Node2D"]
 position = Vector2(41.8062, -79)
@@ -19,6 +18,7 @@ scale = Vector2(0.139097, 0.139097)
 script = ExtResource("1_gupiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(-4796.63, -1760.52)
 shape = SubResource("RectangleShape2D_01w18")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="FinishLine"]
@@ -27,10 +27,16 @@ scale = Vector2(7.18923, 7.18923)
 stream = ExtResource("2_oas0c")
 
 [node name="GameOver" parent="." instance=ExtResource("2_oro87")]
+visible = false
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tsb54")]
+visible = false
 
 [node name="Death" parent="." instance=ExtResource("5_y0ei0")]
+visible = false
+
+[node name="Death2" parent="." instance=ExtResource("5_y0ei0")]
+visible = false
 
 [connection signal="body_entered" from="FinishLine" to="FinishLine" method="_on_body_entered"]
 [connection signal="finish_game" from="FinishLine" to="GameOver" method="_on_finish_line_finish_game"]

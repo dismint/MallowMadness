@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt7ygt40qum03"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/sticky_terrain_draft.gd" id="1_hw38i"]
+[ext_resource type="Texture2D" uid="uid://ctvn7qa3fdjhs" path="res://assets/graham.png" id="2_nyoi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gdab"]
+size = Vector2(80, 80)
+
+[node name="RigidBody2D" type="Area2D"]
+script = ExtResource("1_hw38i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_5gdab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("2_nyoi3")
