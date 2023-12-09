@@ -29,7 +29,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("13_r7kk2")
 
 [node name="Hazard_Spikes" parent="." instance=ExtResource("2_h5wit")]
-layer_0/tile_data = PackedInt32Array(-131066, 262144, 0, -131044, 0, 2, -131043, 0, 2, -131042, 0, 2, -131041, 0, 2, -131040, 0, 2, -131039, 0, 2)
+layer_0/tile_data = PackedInt32Array(-131044, 0, 2, -131043, 0, 2, -131042, 0, 2, -131041, 0, 2, -131040, 0, 2, -131039, 0, 2, -65530, 0, 1)
 script = null
 
 [node name="Map_Training" parent="." instance=ExtResource("3_4mfnp")]
