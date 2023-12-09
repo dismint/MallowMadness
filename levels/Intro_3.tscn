@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkqc2wh4h6an8"]
+[gd_scene load_steps=17 format=3 uid="uid://uawsj8i0slp8"]
 
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="1_uncdr"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="1_uncdr"]
 [ext_resource type="Texture2D" uid="uid://bgsyjsqcsnacs" path="res://assets/tutorial_wall.png" id="2_3drjr"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="2_smhj1"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="3_f28qa"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="4_l5cir"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="5_i45ea"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="4_l5cir"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="5_i45ea"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="6_hqni0"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="7_kxrol"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="8_cdohg"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/ui_elements/game_over.tscn" id="11_0hah5"]
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="12_yae7a"]
 [ext_resource type="PackedScene" uid="uid://dv6fjl2m3fgo8" path="res://scenes/ui_elements/death_scrn.tscn" id="13_h1eig"]
+[ext_resource type="Texture2D" uid="uid://baagh35o5qp3e" path="res://assets/oven_door.PNG" id="15_dlu1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pu6ll"]
 resource_local_to_scene = true
@@ -59,7 +60,6 @@ script = ExtResource("9_cmo33")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishCondition/FinishLine"]
 position = Vector2(11330, -5713.14)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pu6ll")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="FinishCondition/FinishLine"]
@@ -72,6 +72,11 @@ stream = ExtResource("10_8chwc")
 [node name="PauseScreen" parent="FinishCondition" instance=ExtResource("12_yae7a")]
 
 [node name="Death" parent="FinishCondition" instance=ExtResource("13_h1eig")]
+
+[node name="Sprite2D" type="Sprite2D" parent="FinishCondition"]
+position = Vector2(2204.35, -457.297)
+scale = Vector2(1.584, 1.6)
+texture = ExtResource("15_dlu1m")
 
 [connection signal="body_entered" from="FinishCondition/FinishLine" to="FinishCondition/FinishLine" method="_on_body_entered" flags=18]
 [connection signal="finish_game" from="FinishCondition/FinishLine" to="FinishCondition/GameOver" method="_on_finish_line_finish_game" flags=18]
