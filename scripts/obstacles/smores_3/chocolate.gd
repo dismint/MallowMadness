@@ -1,4 +1,4 @@
-extends Area2D
+extends TileMap
 
 var rng = RandomNumberGenerator.new()
 var timer = rng.randf_range(3.5, 8)
@@ -13,9 +13,9 @@ func _process(delta):
 	
 	if alive:
 		self.show()
-		get_node("CollisionShape2D").disabled = false
-		get_node("RigidBody2D/CollisionShape2D").disabled = false
+#		get_node("CollisionShape2D").disabled = false
+#		get_node("RigidBody2D/CollisionShape2D").disabled = false
 	else:
 		self.hide()
-		get_node("CollisionShape2D").disabled = true
-		get_node("RigidBody2D/CollisionShape2D").disabled = true
+#		get_node("CollisionShape2D").disabled = true
+#		get_node("RigidBody2D/CollisionShape2D").disabled = true

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb6lbkin41gkh"]
+[gd_scene load_steps=7 format=3 uid="uid://cb6lbkin41gkh"]
 
 [ext_resource type="Script" path="res://scripts/lvl_navi/level_menu.gd" id="1_p4ssl"]
 [ext_resource type="Texture2D" uid="uid://bvjdq0yutx6j8" path="res://assets/text_level.png" id="2_bd51l"]
 [ext_resource type="PackedScene" uid="uid://chukp8oa41b0w" path="res://scenes/lvl_navi/level_button_fancy.tscn" id="4_3lbfn"]
 [ext_resource type="Texture2D" uid="uid://g7gfibm32v0d" path="res://assets/text_levels.png" id="4_u5857"]
 [ext_resource type="Texture2D" uid="uid://b8ycc2eqkmbns" path="res://assets/text_tutorials.png" id="5_ajv4j"]
+[ext_resource type="AudioStream" uid="uid://unob8we15754" path="res://assets/audio/menu_bgm.mp3" id="6_xdry6"]
 
 [node name="Level Menu" type="Control"]
 layout_mode = 3
@@ -64,3 +65,7 @@ texture = ExtResource("4_u5857")
 position = Vector2(301, 232)
 scale = Vector2(5, 5)
 texture = ExtResource("5_ajv4j")
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xdry6")
+autoplay = true

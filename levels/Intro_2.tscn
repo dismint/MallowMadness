@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://btdfusdshpl6d"]
+[gd_scene load_steps=17 format=3 uid="uid://btdfusdshpl6d"]
 
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="1_2jybb"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="1_2jybb"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="2_h5wit"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="3_4mfnp"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="4_sb2vb"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="5_qi0qu"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="4_sb2vb"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="5_qi0qu"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="6_udhco"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="7_ls2if"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="8_5ary0"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="12_pgjn1"]
 [ext_resource type="Texture2D" uid="uid://dqx2fxlxcmlat" path="res://assets/tutorial_squish.png" id="13_r7kk2"]
 [ext_resource type="Texture2D" uid="uid://baagh35o5qp3e" path="res://assets/oven_door.PNG" id="14_wtx8o"]
+[ext_resource type="AudioStream" uid="uid://q5po35g7wi7" path="res://assets/audio/tutorial_bgm.mp3" id="15_3uhx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nimod"]
 resource_local_to_scene = true
@@ -75,6 +76,10 @@ stream = ExtResource("10_7n10o")
 position = Vector2(2170.35, -146.298)
 scale = Vector2(4.272, 1.032)
 texture = ExtResource("14_wtx8o")
+
+[node name="Tutorial BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_3uhx1")
+autoplay = true
 
 [connection signal="body_entered" from="FinishCondition/FinishLine" to="FinishCondition/FinishLine" method="_on_body_entered" flags=18]
 [connection signal="finish_game" from="FinishCondition/FinishLine" to="FinishCondition/GameOver" method="_on_finish_line_finish_game" flags=18]

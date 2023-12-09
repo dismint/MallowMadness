@@ -1,4 +1,4 @@
-extends Area2D
+extends TileMap
 
 var rng = RandomNumberGenerator.new()
 var alive_timer = rng.randf_range(3.5, 6.5)
@@ -9,8 +9,8 @@ var num_players_atop = 0
 func _process(delta):
 	if alive_timer <= 0 and dead_timer <= 0:
 		self.hide()
-		get_node("CollisionShape2D").disabled = true
-		get_node("RigidBody2D/CollisionShape2D").disabled = true
+#		get_node("CollisionShape2D").disabled = true
+#		get_node("RigidBody2D/CollisionShape2D").disabled = true
 		dead_timer = rng.randf_range(4.5, 7.5)
 	if num_players_atop > 0:
 		alive_timer -= delta * num_players_atop
@@ -20,8 +20,8 @@ func _process(delta):
 		if dead_timer <= 0:
 			alive_timer = rng.randf_range(3.5, 6.5)
 			self.show()
-			get_node("CollisionShape2D").disabled = false
-			get_node("RigidBody2D/CollisionShape2D").disabled = false
+#			get_node("CollisionShape2D").disabled = false
+#			get_node("RigidBody2D/CollisionShape2D").disabled = false
 			
 
 func _on_body_entered(body):

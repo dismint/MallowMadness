@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8ig00b7yv3yg"]
+[gd_scene load_steps=15 format=3 uid="uid://c8ig00b7yv3yg"]
 
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="1_lfvof"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="1_lfvof"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="2_jlm0u"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="3_v0nsy"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="4_xctg6"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="5_7mdjc"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="4_xctg6"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="5_7mdjc"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="6_hswop"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="7_goyhb"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="8_c2x2j"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://diksrlpyduwiq" path="res://assets/audio/mallowmadness - win.mp3" id="10_oiwla"]
 [ext_resource type="PackedScene" uid="uid://d1ugwuhooy5aj" path="res://scenes/ui_elements/game_over.tscn" id="11_p74e3"]
 [ext_resource type="PackedScene" uid="uid://04swvwrkewb7" path="res://scenes/ui_elements/pause_screen.tscn" id="12_ogmp8"]
+[ext_resource type="AudioStream" uid="uid://cugmyf4kke7ws" path="res://assets/audio/mallowmadness - basket_bgm.mp3" id="13_mildw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uoho1"]
 resource_local_to_scene = true
@@ -63,6 +64,10 @@ stream = ExtResource("10_oiwla")
 [node name="GameOver" parent="FinishCondition" instance=ExtResource("11_p74e3")]
 
 [node name="PauseScreen" parent="FinishCondition" instance=ExtResource("12_ogmp8")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_mildw")
+autoplay = true
 
 [connection signal="body_entered" from="FinishCondition/FinishLine" to="FinishCondition/FinishLine" method="_on_body_entered" flags=18]
 [connection signal="finish_game" from="FinishCondition/FinishLine" to="FinishCondition/GameOver" method="_on_finish_line_finish_game" flags=18]

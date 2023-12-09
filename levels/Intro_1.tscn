@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3raywsyis50a"]
+[gd_scene load_steps=18 format=3 uid="uid://c3raywsyis50a"]
 
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="1_u1ceb"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="1_u1ceb"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="2_v1au8"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="3_xx01x"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="4_1jpva"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="5_73oar"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="4_1jpva"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="5_73oar"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="6_yiybw"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="7_6k7xu"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="8_kupdb"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://kxhdp5d1yclh" path="res://assets/tutorial_jump.png" id="13_16wvh"]
 [ext_resource type="Texture2D" uid="uid://cyp65mpsxisqh" path="res://assets/tutorial_red_controls.png" id="14_3whaq"]
 [ext_resource type="Texture2D" uid="uid://baagh35o5qp3e" path="res://assets/oven_door.PNG" id="15_hw6ge"]
+[ext_resource type="AudioStream" uid="uid://q5po35g7wi7" path="res://assets/audio/tutorial_bgm.mp3" id="16_hnlgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1atr"]
 resource_local_to_scene = true
@@ -79,6 +80,10 @@ stream = ExtResource("10_uqn85")
 [node name="Sprite2D" type="Sprite2D" parent="FinishCondition"]
 position = Vector2(1839.35, -142.298)
 texture = ExtResource("15_hw6ge")
+
+[node name="Tutorial BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_hnlgg")
+autoplay = true
 
 [connection signal="body_entered" from="FinishCondition/FinishLine" to="FinishCondition/FinishLine" method="_on_body_entered" flags=18]
 [connection signal="finish_game" from="FinishCondition/FinishLine" to="FinishCondition/GameOver" method="_on_finish_line_finish_game" flags=18]
