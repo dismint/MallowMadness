@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="6_hs1rp"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="8_4y54s"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="10_u8k31"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="12_4jwcu"]
+[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="11_lb86h"]
+[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="12_4jwcu"]
 [ext_resource type="PackedScene" uid="uid://ttgmurypxwyt" path="res://scenes/ui_elements/finish_condition.tscn" id="12_yse55"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="13_c5clc"]
+[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="13_c5clc"]
 [ext_resource type="AudioStream" uid="uid://cugmyf4kke7ws" path="res://assets/audio/mallowmadness - basket_bgm.mp3" id="13_r3tj5"]
 
 [node name="Level0" type="Node2D"]
