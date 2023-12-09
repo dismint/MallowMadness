@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://ce4rblkyhhhjw"]
 
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_t434n"]
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_ps65n"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="3_xwb0i"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_ps65n"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="3_xwb0i"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="4_a87lr"]
 [ext_resource type="Script" path="res://scripts/obstacles/moving_spikes.gd" id="5_6w127"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="6_ta64b"]
@@ -12,9 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://ypj55iehwqgl" path="res://assets/audio/oven_bgm_start.mp3" id="10_01drp"]
 [ext_resource type="AudioStream" uid="uid://47htssm72o64" path="res://assets/audio/mallowmadness - oven_bgm.mp3" id="11_14cvw"]
 [ext_resource type="AudioStream" uid="uid://cxdos1pdkicsy" path="res://assets/audio/mallowmadness - oven_bgm_end.mp3" id="12_tiu87"]
-[ext_resource type="PackedScene" uid="uid://biqstti2bg22p" path="res://scenes/obstacles/vertical_slider_button/horizontal_slider.tscn" id="13_pogwa"]
+[ext_resource type="Script" path="res://scripts/obstacles/vertical_slider_button/horizontal_slider.gd" id="13_vseqp"]
 [ext_resource type="PackedScene" uid="uid://bsa8miqihggx0" path="res://scenes/obstacles/vertical_slider_button/button.tscn" id="14_bsipg"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/sticky_area.tscn" id="15_pqqaj"]
+[ext_resource type="PackedScene" uid="uid://bt7ygt40qum03" path="res://scenes/obstacles/sticky_area.tscn" id="15_pqqaj"]
 [ext_resource type="Script" path="res://scripts/obstacles/grab_sticky.gd" id="16_452pe"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="17_32x6n"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="18_wcle6"]
@@ -189,9 +189,9 @@ position = Vector2(2042, 1320)
 stream = ExtResource("12_tiu87")
 max_distance = 5000.0
 
-[node name="HorizontalSlider" parent="." node_paths=PackedStringArray("activ") instance=ExtResource("13_pogwa")]
-position = Vector2(720, 480)
-layer_0/tile_data = PackedInt32Array(589854, 524288, 17, 589855, 524288, 17)
+[node name="Slider" parent="." node_paths=PackedStringArray("activ") instance=ExtResource("3_xwb0i")]
+layer_0/tile_data = PackedInt32Array(983079, 524288, 17, 983080, 524288, 17)
+script = ExtResource("13_vseqp")
 activ = NodePath("../Button")
 
 [node name="Button" parent="." instance=ExtResource("14_bsipg")]
@@ -202,10 +202,10 @@ position = Vector2(3201, 1519)
 script = ExtResource("16_452pe")
 
 [node name="Player1" parent="." instance=ExtResource("17_32x6n")]
-position = Vector2(2873, 1157)
+position = Vector2(370, 432)
 
 [node name="Player2" parent="." instance=ExtResource("18_wcle6")]
-position = Vector2(2783, 1156)
+position = Vector2(290, 429)
 
 [node name="Exit Stickies" type="Node2D" parent="."]
 

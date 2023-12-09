@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://c3raywsyis50a"]
 
-[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="1_u1ceb"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="1_u1ceb"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="2_v1au8"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="3_xx01x"]
-[ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="4_1jpva"]
-[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="5_73oar"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basket.tscn" id="4_1jpva"]
+[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="5_73oar"]
 [ext_resource type="PackedScene" uid="uid://k0j8hxol2gik" path="res://scenes/players/player_1.tscn" id="6_yiybw"]
 [ext_resource type="PackedScene" uid="uid://dt0iwrgmyjr4s" path="res://scenes/players/player_2.tscn" id="7_6k7xu"]
 [ext_resource type="PackedScene" uid="uid://clt78ov1d5qt8" path="res://scenes/players/camera_both.tscn" id="8_kupdb"]
