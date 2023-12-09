@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb6lbkin41gkh"]
+[gd_scene load_steps=4 format=3 uid="uid://cb6lbkin41gkh"]
 
 [ext_resource type="Script" path="res://scripts/lvl_navi/level_menu.gd" id="1_p4ssl"]
+[ext_resource type="Texture2D" uid="uid://bvjdq0yutx6j8" path="res://assets/text_level.png" id="2_bd51l"]
+[ext_resource type="PackedScene" uid="uid://chukp8oa41b0w" path="res://scenes/lvl_navi/level_button_fancy.tscn" id="4_3lbfn"]
 
 [node name="Level Menu" type="Control"]
 layout_mode = 3
@@ -12,30 +14,40 @@ dir_path = "res://levels"
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.639216, 0.862745, 0.945098, 1)
+color = Color(0.780392, 0.894118, 1, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_top = 204.0
-offset_right = 1153.0
-offset_bottom = 465.0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-columns = 4
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 8.0
-offset_right = 359.0
-offset_bottom = 34.0
+[node name="TextLevel" type="Sprite2D" parent="."]
+position = Vector2(575, 85)
 scale = Vector2(5, 5)
-text = "SELECT YOUR LEVEL"
+texture = ExtResource("2_bd51l")
+
+[node name="tut1" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(191, 365)
+
+[node name="tut2" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(373, 365)
+spriteFrame = 1
+
+[node name="tut3" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(190, 534)
+spriteFrame = 2
+
+[node name="tut4" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(374, 538)
+spriteFrame = 3
+
+[node name="lvl1" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(752, 364)
+spriteFrame = 4
+
+[node name="lvl2" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(929, 363)
+spriteFrame = 5
+
+[node name="lvl3" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(751, 541)
+spriteFrame = 6
+
+[node name="lvl4" parent="." instance=ExtResource("4_3lbfn")]
+position = Vector2(928, 540)
+spriteFrame = 7

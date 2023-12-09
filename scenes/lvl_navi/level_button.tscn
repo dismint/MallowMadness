@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://4o8ltv51crw4" path="res://assets/audio/mallowmadness - on_button_click1.mp3" id="4_ke31v"]
 
 [node name="Level Button" type="Button"]
-offset_right = 18.0
-offset_bottom = 18.0
+offset_right = 273.0
+offset_bottom = 108.0
 icon = ExtResource("1_opee5")
 script = ExtResource("2_48yyl")
 

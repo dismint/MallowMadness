@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://chukp8oa41b0w"]
+
+[ext_resource type="Script" path="res://scripts/lvl_navi/lvl_btn.gd" id="2_rwx1g"]
+[ext_resource type="AudioStream" uid="uid://bf2vg5uw4fwhv" path="res://assets/audio/mallowmadness - on_button_hover.mp3" id="3_sk64h"]
+[ext_resource type="AudioStream" uid="uid://4o8ltv51crw4" path="res://assets/audio/mallowmadness - on_button_click1.mp3" id="4_6b6hr"]
+[ext_resource type="Texture2D" uid="uid://5vn4jy27dvt7" path="res://assets/buttons.png" id="4_8hvd4"]
+[ext_resource type="Script" path="res://scripts/lvl_navi/button_sprite.gd" id="5_5pcib"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level Button" type="Button" parent="."]
+offset_left = -69.0
+offset_top = -69.0
+offset_right = 69.0
+offset_bottom = 69.0
+scale = Vector2(0.999016, 1)
+script = ExtResource("2_rwx1g")
+
+[node name="MouseHover" type="AudioStreamPlayer2D" parent="Level Button"]
+stream = ExtResource("3_sk64h")
+volume_db = -10.0
+
+[node name="MouseClick" type="AudioStreamPlayer2D" parent="Level Button"]
+stream = ExtResource("4_6b6hr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("4_8hvd4")
+hframes = 4
+vframes = 2
+script = ExtResource("5_5pcib")
+
+[connection signal="mouse_entered" from="Level Button" to="Level Button" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Level Button" to="Sprite2D" method="_on_level_button_mouse_entered"]
+[connection signal="mouse_exited" from="Level Button" to="Level Button" method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="Level Button" to="Sprite2D" method="_on_level_button_mouse_exited"]
+[connection signal="pressed" from="Level Button" to="Level Button" method="_on_pressed"]
+[connection signal="pressed" from="Level Button" to="Sprite2D" method="_on_level_button_pressed"]

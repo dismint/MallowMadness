@@ -8,6 +8,7 @@ func _ready() -> void:
 	get_levels(dir_path)
 
 func get_levels(path):
+	return
 	var dir = DirAccess.open(path)
 	
 	if dir != null:
@@ -15,6 +16,7 @@ func get_levels(path):
 		var file_name = dir.get_next()
 		while file_name != "":
 			create_level_btn('%s/%s' % [dir.get_current_dir(), file_name], file_name)
+			print('%s/%s' % [dir.get_current_dir(), file_name])
 			file_name = dir.get_next()
 		dir.list_dir_end()
 	else:
