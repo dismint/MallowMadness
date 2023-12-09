@@ -87,7 +87,6 @@ func get_pressed_node(direction):
 	
 	# Player collided with something
 	var collider = collision.get_collider()
-	print(collider.name)
 	if collider.name.contains("Hazard"):
 		$Dead.play()
 		GameState.reset_positions()
