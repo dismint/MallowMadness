@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://drl4rb3g1m321"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_rq6my"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Background.tscn" id="2_d3yso"]
-[ext_resource type="PackedScene" path="res://scenes/terrain/Map_Basic.tscn" id="3_kti2q"]
+[ext_resource type="PackedScene" uid="uid://by2vpprp2lx2s" path="res://scenes/terrain/Map_Background.tscn" id="2_d3yso"]
+[ext_resource type="PackedScene" uid="uid://fu8lavy74oum" path="res://scenes/terrain/Map_Basic.tscn" id="3_kti2q"]
 [ext_resource type="PackedScene" uid="uid://cneuwy3kby8rc" path="res://scenes/terrain/Hazard_Spikes.tscn" id="4_2anpo"]
 [ext_resource type="PackedScene" uid="uid://xmfbt6pqba1v" path="res://scenes/terrain/Map_Training.tscn" id="5_cwtt2"]
 [ext_resource type="PackedScene" uid="uid://3kpf8p4uvbxa" path="res://scenes/terrain/Map_Basket.tscn" id="6_ihbjs"]

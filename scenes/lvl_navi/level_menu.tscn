@@ -36,10 +36,6 @@ spriteFrame = 1
 position = Vector2(190, 534)
 spriteFrame = 2
 
-[node name="tut4" parent="." instance=ExtResource("4_3lbfn")]
-position = Vector2(374, 538)
-spriteFrame = 3
-
 [node name="lvl1" parent="." instance=ExtResource("4_3lbfn")]
 position = Vector2(752, 364)
 spriteFrame = 4
